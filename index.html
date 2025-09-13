@@ -264,11 +264,34 @@
             color: white;
         }
         
-        .facebook-float {
+        .whatsapp-business-float {
             position: fixed;
             width: 60px;
             height: 60px;
             bottom: 110px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .whatsapp-business-float:hover {
+            background-color: #128C7E;
+            color: white;
+        }
+        
+        .facebook-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 180px;
             right: 40px;
             background-color: #3b5998;
             color: #FFF;
@@ -285,6 +308,45 @@
         .facebook-float:hover {
             background-color: #2d4373;
             color: white;
+        }
+        
+        .contact-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .contact-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+        
+        .contact-description {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -394,7 +456,7 @@
             <div class="row">
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <img src="./cle simple.jpg" alt="Type simple à puce" class="key-image">
+                        <img src="https://placehold.co/400x300/0A2463/FFFFFF/png?text=Clé+Simple" alt="Type simple à puce" class="key-image">
                         <h4>Type simple à puce</h4>
                         <div class="price">
                             <span class="old-price">100$</span>
@@ -407,7 +469,7 @@
                 
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <img src="./Cle telecommande.jpg" alt="Type télécommande à puce et lame fixe" class="key-image">
+                        <img src="https://placehold.co/400x300/0A2463/FFFFFF/png?text=Clé+Télécommande" alt="Type télécommande à puce et lame fixe" class="key-image">
                         <h4>Type télécommande à puce et lame fixe</h4>
                         <div class="price">
                             <span class="old-price">120$</span>
@@ -420,7 +482,7 @@
                 
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <img src="./Cle a main libre.jpg" alt="Type push main libre à puce" class="key-image">
+                        <img src="https://placehold.co/400x300/0A2463/FFFFFF/png?text=Clé+Push+Start" alt="Type push main libre à puce" class="key-image">
                         <h4>Type push main libre à puce</h4>
                         <div class="price">
                             <span class="old-price">154$</span>
@@ -433,7 +495,7 @@
                 
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <img src="./Cle telecommande a lame rabatable.webp" alt="Type télécommande à puce et lame rabattable" class="key-image">
+                        <img src="https://placehold.co/400x300/0A2463/FFFFFF/png?text=Clé+Rabattable" alt="Type télécommande à puce et lame rabattable" class="key-image">
                         <h4>Type télécommande à puce et lame rabattable</h4>
                         <div class="price">
                             <span class="old-price">131$</span>
@@ -463,8 +525,45 @@
         </div>
     </div>
     
-    <!-- Additional CTA Section -->
+    <!-- Contact Section -->
     <div class="container" id="contact">
+        <div class="catalogue-section">
+            <div class="text-center mb-5">
+                <div class="header-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h2 class="fw-bold">Contactez-nous</h2>
+                <p class="lead">Nous sommes disponibles sur les deux numéros WhatsApp</p>
+            </div>
+            
+            <div class="contact-options">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-title">WhatsApp Messenger</div>
+                    <div class="contact-description">Pour une assistance rapide et personnelle</div>
+                    <a href="https://wa.me/243999075877" class="btn btn-promo btn-sm">
+                        <i class="fab fa-whatsapp me-2"></i>Nous contacter
+                    </a>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-title">WhatsApp Business</div>
+                    <div class="contact-description">Pour des demandes professionnelles et devis</div>
+                    <a href="https://wa.me/243999075877" class="btn btn-promo btn-sm">
+                        <i class="fab fa-whatsapp me-2"></i>Nous contacter
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Additional CTA Section -->
+    <div class="container mt-5">
         <div class="cta-section">
             <h2 class="display-5 fw-bold mb-4">Ne manquez pas cette opportunité</h2>
             <p class="lead mb-4">Contactez-nous dès aujourd'hui pour bénéficier de -35% sur tous nos services</p>
@@ -483,8 +582,9 @@
                     <p>Technology Engineering Startup</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Contact WhatsApp</h5>
-                    <p><i class="fab fa-whatsapp me-2"></i>+243 999 075 877</p>
+                    <h5>Contacts WhatsApp</h5>
+                    <p><i class="fab fa-whatsapp me-2"></i>Messenger: +243 999 075 877</p>
+                    <p><i class="fab fa-whatsapp me-2"></i>Business: +243 999 075 877</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Suivez-nous</h5>
@@ -505,6 +605,12 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     
+    <!-- Floating WhatsApp Business Button -->
+    <a href="https://wa.me/243999075877?text=Bonjour%20AMELTEK%20ENGINEERING,%20je%20suis%20intéressé%20par%20vos%20services" 
+       class="whatsapp-business-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
     <!-- Floating Facebook Button -->
     <a href="https://web.facebook.com/?_rdc=1&_rdr" 
        class="facebook-float" target="_blank">
@@ -522,7 +628,31 @@
                 <div class="modal-body">
                     <div class="alert alert-info">
                         <i class="fas fa-info-circle me-2"></i>
-                        Toutes les demandes seront traitées via WhatsApp. Veuillez remplir ce formulaire et vous serez redirigé vers WhatsApp pour finaliser votre demande.
+                        Toutes les demandes seront traitées via WhatsApp. Veuillez choisir votre option préférée et vous serez redirigé vers WhatsApp pour finaliser votre demande.
+                    </div>
+                    
+                    <div class="contact-options mb-4">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-title">WhatsApp Messenger</div>
+                            <div class="contact-description">Pour une assistance rapide et personnelle</div>
+                            <button class="btn btn-promo btn-sm contact-whatsapp" data-type="messenger">
+                                <i class="fab fa-whatsapp me-2"></i>Choisir cette option
+                            </button>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-title">WhatsApp Business</div>
+                            <div class="contact-description">Pour des demandes professionnelles et devis</div>
+                            <button class="btn btn-promo btn-sm contact-whatsapp" data-type="business">
+                                <i class="fab fa-whatsapp me-2"></i>Choisir cette option
+                            </button>
+                        </div>
                     </div>
                     
                     <form id="whatsappForm">
@@ -584,7 +714,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-promo" id="sendWhatsApp">
+                    <button type="button" class="btn btn-promo" id="sendWhatsApp" disabled>
                         <i class="fab fa-whatsapp me-2"></i>Envoyer via WhatsApp
                     </button>
                 </div>
@@ -601,6 +731,8 @@
             const keyFields = document.getElementById('keyFields');
             const whatsappForm = document.getElementById('whatsappForm');
             const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
+            const contactWhatsAppButtons = document.querySelectorAll('.contact-whatsapp');
+            let selectedWhatsAppType = null;
             
             // Animation de pulsation continue
             setInterval(() => {
@@ -626,11 +758,34 @@
                 }
             });
             
+            // Choix du type WhatsApp
+            contactWhatsAppButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    selectedWhatsAppType = this.dataset.type;
+                    
+                    // Mettre en évidence le bouton sélectionné
+                    contactWhatsAppButtons.forEach(btn => {
+                        btn.classList.remove('btn-promo');
+                        btn.classList.add('btn-outline-primary');
+                    });
+                    this.classList.remove('btn-outline-primary');
+                    this.classList.add('btn-promo');
+                    
+                    // Activer le bouton d'envoi
+                    sendWhatsAppBtn.disabled = false;
+                });
+            });
+            
             // Envoyer le formulaire via WhatsApp
             sendWhatsAppBtn.addEventListener('click', function() {
                 // Validation des champs requis
                 if (!whatsappForm.checkValidity()) {
                     whatsappForm.reportValidity();
+                    return;
+                }
+                
+                if (!selectedWhatsAppType) {
+                    alert('Veuillez choisir une option WhatsApp');
                     return;
                 }
                 
@@ -675,6 +830,7 @@
             // Animation des éléments au défilement
             const serviceItems = document.querySelectorAll('.service-item');
             const priceCards = document.querySelectorAll('.price-card');
+            const contactCards = document.querySelectorAll('.contact-card');
             
             function checkScroll() {
                 serviceItems.forEach(item => {
@@ -696,6 +852,16 @@
                         card.style.transform = 'translateY(0)';
                     }
                 });
+                
+                contactCards.forEach(card => {
+                    const position = card.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (position < screenPosition) {
+                        card.style.opacity = 1;
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
             }
             
             // Initialiser l'opacité
@@ -705,6 +871,11 @@
             });
             
             priceCards.forEach(card => {
+                card.style.opacity = 0;
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            contactCards.forEach(card => {
                 card.style.opacity = 0;
                 card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             });
