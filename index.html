@@ -119,6 +119,23 @@
             margin: 15px 0;
         }
         
+        .old-price {
+            font-size: 1.2rem;
+            text-decoration: line-through;
+            color: #718096;
+            margin-right: 10px;
+        }
+        
+        .discount-badge {
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            padding: 3px 8px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
         .price-small {
             font-size: 1.2rem;
         }
@@ -128,6 +145,14 @@
             color: #718096;
             margin-top: 20px;
             font-style: italic;
+        }
+        
+        .key-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin: 0 auto 15px;
+            display: block;
         }
         
         .cta-section {
@@ -363,50 +388,58 @@
                     <i class="fas fa-tags"></i>
                 </div>
                 <h2 class="fw-bold">Catalogue Reproduction de Clés</h2>
-                <p class="lead">Découvrez nos tarifs pour la reproduction de tous types de clés</p>
+                <p class="lead">Découvrez nos tarifs promotionnels avec -35% sur tous types de clés</p>
             </div>
             
             <div class="row">
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <div class="key-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
+                        <img src="./cle simple.jpg" alt="Type simple à puce" class="key-image">
                         <h4>Type simple à puce</h4>
-                        <div class="price">65$</div>
+                        <div class="price">
+                            <span class="old-price">100$</span>
+                            <span>65$</span>
+                            <span class="discount-badge">-35%</span>
+                        </div>
                         <p>Clé standard avec puce électronique pour véhicules courants</p>
                     </div>
                 </div>
                 
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <div class="key-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
+                        <img src="./Cle telecommande.jpg" alt="Type télécommande à puce et lame fixe" class="key-image">
                         <h4>Type télécommande à puce et lame fixe</h4>
-                        <div class="price">78$</div>
-                        <p>Clé avec télécommande intégrée et lame fixe pour ouverture à distance</p>
+                        <div class="price">
+                            <span class="old-price">120$</span>
+                            <span>78$</span>
+                            <span class="discount-badge">-35%</span>
+                        </div>
+                        <p>Clé avec télécommande intégrée et lame fixe pour plus de confort</p>
                     </div>
                 </div>
                 
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <div class="key-icon">
-                            <i class="fas fa-key"></i>
-                        </div>
+                        <img src="./Cle a main libre.jpg" alt="Type push main libre à puce" class="key-image">
                         <h4>Type push main libre à puce</h4>
-                        <div class="price">100$</div>
+                        <div class="price">
+                            <span class="old-price">154$</span>
+                            <span>100$</span>
+                            <span class="discount-badge">-35%</span>
+                        </div>
                         <p>Clé haut de gamme avec fonction main libre et système push-to-start</p>
                     </div>
                 </div>
                 
                 <div class="col-md-3 mb-4">
                     <div class="price-card">
-                        <div class="key-icon">
-                            <i class="fas fa-key"></i>
+                        <img src="./Cle telecommande a lame rabatable.webp" alt="Type télécommande à puce et lame rabattable" class="key-image">
+                        <h4>Type télécommande à puce et lame rabattable</h4>
+                        <div class="price">
+                            <span class="old-price">131$</span>
+                            <span>85$</span>
+                            <span class="discount-badge">-35%</span>
                         </div>
-                        <h4>Type télécommande à puce et lame rabatable</h4>
-                        <div class="price">85$</div>
                         <p>Clé avec télécommande intégrée et lame rabattable pour plus de confort</p>
                     </div>
                 </div>
@@ -521,9 +554,9 @@
                                 <select class="form-select" id="keyType">
                                     <option value="" selected disabled>Choisir un type de clé...</option>
                                     <option value="simple" data-price="65">Type simple à puce (65$)</option>
-                                    <option value="telecommande" data-price="85">Type télécommande à puce et lame fixe (78$)</option>
+                                    <option value="telecommande" data-price="78">Type télécommande à puce et lame fixe (78$)</option>
                                     <option value="push" data-price="100">Type push main libre à puce (100$)</option>
-                                    <option value="premium" data-price="120">Type télécommande à puce et lame rabatable (85$)</option>
+                                    <option value="premium" data-price="85">Type télécommande à puce et lame rabattable (85$)</option>
                                 </select>
                             </div>
                             
@@ -684,5 +717,4 @@
         });
     </script>
 </body>
-
 </html>
