@@ -12,15 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0A2463; /* Bleu marine professionnel */
-            --accent-color: #D4AF37; /* Or élégant */
-            --secondary-color: #247BA0; /* Bleu complémentaire */
-            --light-color: #F5F5F5; /* Gris très clair */
-            --dark-color: #1a1a2e; /* Noir adouci */
-            --text-color: #444444; /* Gris foncé pour texte */
-            --excel-color: #217346; /* Vert Excel */
-            --web-color: #E44D26; /* Orange développement web */
-            --data-color: #6F42C1; /* Violet analyse données */
+            --primary-color: #0A2463;
+            --accent-color: #D4AF37;
+            --secondary-color: #247BA0;
+            --light-color: #F5F5F5;
+            --dark-color: #1a1a2e;
+            --text-color: #444444;
+            --excel-color: #217346;
+            --web-color: #E44D26;
+            --data-color: #6F42C1;
             --gradient-primary: linear-gradient(135deg, #0A2463, #1E3A8A);
             --gradient-excel: linear-gradient(135deg, #217346, #1e5e3a);
             --gradient-web: linear-gradient(135deg, #E44D26, #CC3A20);
@@ -42,6 +42,7 @@
             color: var(--text-color);
             line-height: 1.7;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -267,47 +268,6 @@
             color: white;
         }
         
-        .cta-section {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            margin-top: 60px;
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .urgency-note {
-            font-weight: 700;
-            color: var(--accent-color);
-            animation: pulse 1.5s infinite;
-            font-size: 1.2rem;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
         .btn-promo {
             background: var(--gradient-gold);
             color: var(--dark-color);
@@ -481,24 +441,35 @@
             to { opacity: 1; transform: translateX(0); }
         }
         
-        #keyFields, #excelFields, #webFields, #dataFields {
+        #keyFields, #excelFields, #webFields, #dataFields, #excelTrainingDetails {
             display: none;
         }
         
-        .curriculum-item {
-            border-left: 3px solid var(--accent-color);
-            padding-left: 20px;
-            margin-bottom: 30px;
+        .excel-training-section {
+            background: linear-gradient(135deg, rgba(33, 115, 70, 0.05), transparent);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            border-left: 4px solid var(--excel-color);
         }
         
-        .module-badge {
-            background: var(--gradient-primary);
+        .accordion-button:not(.collapsed) {
+            background-color: var(--excel-color);
             color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            display: inline-block;
-            margin-bottom: 10px;
+        }
+        
+        .accordion-button:focus {
+            border-color: var(--excel-color);
+            box-shadow: 0 0 0 0.25rem rgba(33, 115, 70, 0.25);
+        }
+        
+        .modal-xl {
+            max-width: 1200px;
+        }
+        
+        .modal-body {
+            max-height: 80vh;
+            overflow-y: auto;
         }
         
         @media (max-width: 768px) {
@@ -509,6 +480,10 @@
             .services-section {
                 margin-top: -30px;
                 padding: 40px 20px;
+            }
+            
+            .modal-xl {
+                max-width: 95%;
             }
         }
     </style>
@@ -533,10 +508,7 @@
                         <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#excel-training">Formation Excel</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">À propos</a>
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -552,7 +524,7 @@
                 <h2 class="mt-3 mb-4">CLÉS, WEB, DATA & FORMATION EXCEL</h2>
                 <p class="lead mb-5">Services experts avec une remise exceptionnelle limitée dans le temps</p>
                 <button class="btn btn-promo btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    Profiter de l'offre <i class="fas fa-arrow-right ms-2"></i>
+                    Demander un service <i class="fas fa-arrow-right ms-2"></i>
                 </button>
             </div>
         </div>
@@ -585,6 +557,11 @@
                             <li>Garantie de fonctionnement</li>
                             <li>Support technique après-service</li>
                         </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('reprogrammation')">
+                                Demander ce service
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -603,6 +580,11 @@
                             <li>Résultat identique à l'original</li>
                             <li>Processus rapide et sécurisé</li>
                         </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('clonage')">
+                                Demander ce service
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -618,9 +600,14 @@
                         <ul class="mt-3">
                             <li>Design responsive et moderne</li>
                             <li>Technologies: HTML5, CSS3, JavaScript</li>
-                            <li>Bases de données optimisées avec PostgreSQL</li>
+                            <li>Bases de données optimisées</li>
                             <li>Hébergement et maintenance inclus</li>
                         </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('application')">
+                                Demander ce service
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -639,6 +626,11 @@
                             <li>Recommandations stratégiques</li>
                             <li>Formation de votre équipe</li>
                         </ul>
+                        <div class="mt-3">
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('consultance')">
+                                Demander ce service
+                            </button>
+                        </div>
                     </div>
                 </div>
                 
@@ -658,278 +650,21 @@
                             </div>
                             <div class="col-md-6">
                                 <p><i class="fas fa-calendar-alt me-2"></i><strong>Jours:</strong> Lundi, Mardi, Jeudi</p>
-                                <p><i class="fas fa-laptop me-2"></i><strong>Modalité:</strong> En ligne/Présentiel</p>
+                                <p><i class="fas fa-laptop me-2"></i><strong>Modalité:</strong> En ligne</p>
                             </div>
                         </div>
                         <div class="mt-3">
                             <span class="badge bg-success me-2 fs-6 p-2">63$ complet</span>
-                            <span class="badge bg-primary me-2 fs-6 p-2">20$/semaine</span>
+                            <span class="badge bg-primary me-2 fs-6 p-2">21$/semaine</span>
                             <span class="badge bg-info fs-6 p-2">7$/séance</span>
                         </div>
                         <div class="mt-3">
-                            <a href="#excel-training" class="btn btn-outline-success btn-sm">Voir le programme détaillé</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Formation Excel Détail Section -->
-    <section id="excel-training" class="py-5 bg-light">
-        <div class="container">
-            <div class="text-center mb-5">
-                <div class="header-icon">
-                    <i class="fas fa-file-excel"></i>
-                </div>
-                <h2 class="section-title">Formation Excel Complète</h2>
-                <p class="lead">Maîtrisez Excel de A à Z avec notre programme structuré en 10 chapitres</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-lg-8 mx-auto">
-                    <div class="card shadow border-0 mb-4">
-                        <div class="card-body p-4">
-                            <h4 class="card-title mb-3">Détails de la formation</h4>
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <p><i class="fas fa-clock me-2 text-primary"></i><strong>Durée:</strong> 6 sessions</p>
-                                    <p><i class="fas fa-calendar me-2 text-primary"></i><strong>Horaires:</strong> 19h30-20h30</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p><i class="fas fa-calendar-alt me-2 text-primary"></i><strong>Jours:</strong> Lundi, Mardi, Jeudi</p>
-                                    <p><i class="fas fa-laptop me-2 text-primary"></i><strong>Modalité:</strong> En ligne/Présentiel</p>
-                                </div>
-                            </div>
-                            
-                            <div class="pricing-options mb-4">
-                                <h5 class="mb-3">Options de paiement:</h5>
-                                <div class="d-flex flex-wrap gap-2">
-                                    <span class="badge bg-success fs-6 p-2">63$ complet</span>
-                                    <span class="badge bg-primary fs-6 p-2">20$/semaine</span>
-                                    <span class="badge bg-info fs-6 p-2">7$/séance</span>
-                                </div>
-                            </div>
-                            
-                            <button class="btn btn-promo w-100" data-bs-toggle="modal" data-bs-target="#contactModal">
-                                S'inscrire maintenant <i class="fas fa-arrow-right ms-2"></i>
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('excel')">
+                                S'inscrire à la formation
                             </button>
                         </div>
                     </div>
-                    
-                    <!-- Programme détaillé -->
-                    <div class="card shadow border-0">
-                        <div class="card-header bg-primary text-white">
-                            <h4 class="mb-0">Programme détaillé de la formation</h4>
-                        </div>
-                        <div class="card-body p-0">
-                            <div class="accordion" id="excelCurriculum">
-                                <!-- Chapitre 1 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Chapitre 1: Fondamentaux
-                                        </button>
-                                    </h2>
-                                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Interface Excel</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Structure d'une feuille de calcul</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Enregistrement et ouverture de documents</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 2 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTwo">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                            Chapitre 2: Saisie de données et formules
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Entrer textes, nombres et dates</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Créer des formules avec références</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Références relatives, absolues et mixtes</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Copier et coller des formules</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 3 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingThree">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                            Chapitre 3: Fonctions simples
-                                        </button>
-                                    </h2>
-                                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Structure des fonctions Excel</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Fonctions SOMME, MOYENNE, NB</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Fonctions SI, ET, OU</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Fonctions dates et heures</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 4 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFour">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                            Chapitre 4: Modification de feuilles
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Déplacer et copier cellules</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Insérer/supprimer lignes et colonnes</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Modifier largeurs et hauteurs</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Gérer les onglets de feuilles</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 5 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingFive">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                            Chapitre 5: Formatage
-                                        </button>
-                                    </h2>
-                                    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Bordures et polices</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Alignement et fusion</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Mise en forme conditionnelle</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Graphiques SmartArt</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 6 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingSix">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                            Chapitre 6: Impression
-                                        </button>
-                                    </h2>
-                                    <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Orientation et mise à l'échelle</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Zones d'impression</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>En-têtes et pieds de page</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Marges et sauts de page</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 7 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingSeven">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                            Chapitre 7: Graphiques
-                                        </button>
-                                    </h2>
-                                    <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Graphiques à secteurs</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Histogrammes et courbes</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Graphiques combinés</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Graphiques en cascade et aires</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 8 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingEight">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                            Chapitre 8: Tableaux et tableaux croisés
-                                        </button>
-                                    </h2>
-                                    <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Création de tableaux Excel</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Tri et filtrage</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Sous-totaux</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Tableaux croisés dynamiques</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 9 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingNine">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
-                                            Chapitre 9: Fonctions avancées
-                                        </button>
-                                    </h2>
-                                    <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Références structurées</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Fonctions RECHERCHEV, RECHERCHEH</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Fonctions INDEX et EQUIV</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Fonctions conditionnelles</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <!-- Chapitre 10 -->
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingTen">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen" aria-expanded="false" aria-controls="collapseTen">
-                                            Chapitre 10: Classeurs multiples
-                                        </button>
-                                    </h2>
-                                    <div id="collapseTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#excelCurriculum">
-                                        <div class="accordion-body">
-                                            <ul class="list-unstyled">
-                                                <li><i class="fas fa-check text-success me-2"></i>Référencement entre feuilles</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Liaison de classeurs</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Validation de saisie</li>
-                                                <li><i class="fas fa-check text-success me-2"></i>Protection de feuilles et classeurs</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CTA Section -->
-    <div class="container mt-5" id="cta">
-        <div class="cta-section">
-            <div class="cta-content">
-                <h2 class="display-5 fw-bold mb-4">Ne manquez pas cette opportunité</h2>
-                <p class="lead mb-4">Profitez de -35% sur tous nos services ou inscrivez-vous à notre formation Excel</p>
-                <p class="urgency-note mb-4"><i class="fas fa-exclamation-circle me-2"></i>Offre limitée dans le temps</p>
-                <button class="btn btn-light btn-lg fw-bold" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    Nous contacter <i class="fab fa-whatsapp ms-2"></i>
-                </button>
             </div>
         </div>
     </div>
@@ -984,7 +719,7 @@
     
     <!-- Contact Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-xl">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="contactModalLabel">Demande de service - WhatsApp</h5>
@@ -1051,41 +786,274 @@
                         
                         <!-- Champs pour la formation Excel -->
                         <div id="excelFields">
-                            <div class="mb-3">
-                                <label class="form-label required">Option de paiement</label>
-                                <div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentOption" id="fullPayment" value="full">
-                                        <label class="form-check-label" for="fullPayment">
-                                            Paiement complet (63$)
-                                        </label>
+                            <div class="excel-training-section">
+                                <h4 class="mb-3 text-center">Détails de la Formation Excel</h4>
+                                
+                                <div class="row mb-4">
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-clock fa-2x text-primary me-3"></i>
+                                            <div>
+                                                <h5>Durée</h5>
+                                                <p class="mb-0">6 sessions de formation</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-calendar fa-2x text-primary me-3"></i>
+                                            <div>
+                                                <h5>Horaires</h5>
+                                                <p class="mb-0">19h30 - 20h30</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentOption" id="weeklyPayment" value="weekly">
-                                        <label class="form-check-label" for="weeklyPayment">
-                                            Paiement par semaine (21$/semaine)
-                                        </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="paymentOption" id="sessionPayment" value="session">
-                                        <label class="form-check-label" for="sessionPayment">
-                                            Paiement par séance (7$/séance)
-                                        </label>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-calendar-alt fa-2x text-primary me-3"></i>
+                                            <div>
+                                                <h5>Jours</h5>
+                                                <p class="mb-0">Lundi, Mardi, Jeudi</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <i class="fas fa-laptop fa-2x text-primary me-3"></i>
+                                            <div>
+                                                <h5>Modalité</h5>
+                                                <p class="mb-0">En ligne </p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <div class="mb-3">
-                                <label for="excelSchedule" class="form-label">Préférence d'horaire</label>
-                                <select class="form-select" id="excelSchedule">
-                                    <option value="" selected>Disponible pour tous les horaires</option>
-                                    <option value="lundi">Lundi uniquement</option>
-                                    <option value="mardi">Mardi uniquement</option>
-                                    <option value="jeudi">Jeudi uniquement</option>
-                                    <option value="lundi-mardi">Lundi et Mardi</option>
-                                    <option value="lundi-jeudi">Lundi et Jeudi</option>
-                                    <option value="mardi-jeudi">Mardi et Jeudi</option>
-                                </select>
+                                
+                                <div class="pricing-section text-center mb-4">
+                                    <h4 class="mb-3">Options de Paiement</h4>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-success">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Complet</h5>
+                                                    <h3 class="text-success">63$</h3>
+                                                    <p class="text-muted">Paiement en une fois</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-primary">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Par Semaine</h5>
+                                                    <h3 class="text-primary">21$</h3>
+                                                    <p class="text-muted">Paiement hebdomadaire</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                            <div class="card border-info">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Par Séance</h5>
+                                                    <h3 class="text-info">7$</h3>
+                                                    <p class="text-muted">Paiement à la séance</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label required">Option de paiement</label>
+                                    <div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymentOption" id="fullPayment" value="full">
+                                            <label class="form-check-label" for="fullPayment">
+                                                Paiement complet (63$)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymentOption" id="weeklyPayment" value="weekly">
+                                            <label class="form-check-label" for="weeklyPayment">
+                                                Paiement par semaine (21$/semaine)
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymentOption" id="sessionPayment" value="session">
+                                            <label class="form-check-label" for="sessionPayment">
+                                                Paiement par séance (7$/séance)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="excelSchedule" class="form-label">Préférence d'horaire</label>
+                                    <select class="form-select" id="excelSchedule">
+                                        <option value="" selected>Disponible pour tous les horaires</option>
+                                        <option value="lundi">Lundi uniquement</option>
+                                        <option value="mardi">Mardi uniquement</option>
+                                        <option value="jeudi">Jeudi uniquement</option>
+                                        <option value="lundi-mardi">Lundi et Mardi</option>
+                                        <option value="lundi-jeudi">Lundi et Jeudi</option>
+                                        <option value="mardi-jeudi">Mardi et Jeudi</option>
+                                    </select>
+                                </div>
+                                
+                                <!-- Programme détaillé -->
+                                <div class="mt-4">
+                                    <h5 class="mb-3">Programme de la Formation</h5>
+                                    <div class="accordion" id="excelCurriculum">
+                                        <!-- Chapitre 1 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                                    <strong>Chapitre 1: Fondamentaux d'Excel</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Interface Excel et navigation</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Structure d'une feuille de calcul</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Enregistrement et ouverture de documents</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Gestion des classeurs et feuilles</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Personnalisation de l'interface</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Chapitre 2 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                                    <strong>Chapitre 2: Saisie de données et formules</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Entrer textes, nombres et dates</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Créer des formules avec références</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Références relatives, absolues et mixtes</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Copier et coller des formules</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Utilisation des opérateurs arithmétiques</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Chapitre 3 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                                    <strong>Chapitre 3: Fonctions essentielles</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions mathématiques (SOMME, MOYENNE, etc.)</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de texte (GAUCHE, DROITE, STXT)</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de date et heure</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions logiques (SI, ET, OU)</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de recherche (RECHERCHEV)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Chapitre 4 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                                    <strong>Chapitre 4: Mise en forme avancée</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme conditionnelle</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Styles et thèmes</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Tableaux Excel structurés</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Validation des données</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Protection des feuilles et classeurs</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Chapitre 5 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                                                    <strong>Chapitre 5: Formater les données dans une feuille de calcul</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Ajout de bordures de cellule</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Modification de la taille de police</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme des données en valeurs</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme des dates et heures</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme des cellules de feuille</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Alignement du contenu des cellules</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fusion de cellules</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Rotation des contenus d'une cellule</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Copier-coller la mise en forme</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en surbrillance avec formatage conditionnel</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Insertion d'images d'arrière-plan</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Utilisation de graphiques SmartArt</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Chapitres 6 à 9 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
+                                                    <strong>Chapitres 6-9: Fonctionnalités avancées</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Impression de documents Excel</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Création de graphiques professionnels</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Tableaux et tableaux croisés dynamiques</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions avancées dans tableaux</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Analyse de données avec tableaux croisés</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de recherche avancées</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Gestion des erreurs dans les formules</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions conditionnelles avancées</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Chapitre 10 -->
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header">
+                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
+                                                    <strong>Chapitre 10: Travailler avec multiples feuilles et classeurs</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
+                                                <div class="accordion-body">
+                                                    <ul class="list-unstyled">
+                                                        <li><i class="fas fa-check text-success me-2"></i>Référencement de cellules dans d'autres feuilles</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Liaison de classeurs</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Mise à jour des classeurs liés</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Création de formules avec références externes</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Navigation dans plusieurs classeurs</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Organisation de multiples classeurs</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Validation de la saisie des données</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Protection d'une feuille de calcul et d'un classeur</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Verrouillage et déverrouillage des cellules</li>
+                                                        <li><i class="fas fa-check text-success me-2"></i>Configuration de la protection des données</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         
@@ -1146,8 +1114,16 @@
     <!-- Bootstrap & JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Fonction pour définir automatiquement le service dans le formulaire
+        function setService(serviceType) {
+            document.getElementById('service').value = serviceType;
+            
+            // Déclencher l'événement change pour afficher les champs appropriés
+            const event = new Event('change');
+            document.getElementById('service').dispatchEvent(event);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            const urgencyNote = document.querySelector('.urgency-note');
             const serviceSelect = document.getElementById('service');
             const keyFields = document.getElementById('keyFields');
             const excelFields = document.getElementById('excelFields');
@@ -1165,11 +1141,6 @@
                     navbar.classList.remove('scrolled');
                 }
             });
-            
-            // Animation de pulsation continue
-            setInterval(() => {
-                urgencyNote.style.transform = urgencyNote.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
-            }, 1000);
             
             // Afficher/masquer les champs selon le service sélectionné
             serviceSelect.addEventListener('change', function() {
@@ -1256,7 +1227,7 @@
                         let paymentText = '';
                         switch(paymentOption.value) {
                             case 'full': paymentText = 'Paiement complet (63$)'; break;
-                            case 'weekly': paymentText = 'Paiement par semaine (20$/semaine)'; break;
+                            case 'weekly': paymentText = 'Paiement par semaine (21$/semaine)'; break;
                             case 'session': paymentText = 'Paiement par séance (7$/séance)'; break;
                         }
                         whatsappMessage += `*Option de paiement:* ${paymentText}%0A`;
