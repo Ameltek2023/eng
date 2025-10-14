@@ -3,32 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMELTEK ENGINEERING - Services Clés, Web & Data</title>
+    <title>AMELTEK ENGINEERING - Services Professionnels</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #0A2463; /* Bleu marine professionnel */
             --accent-color: #D4AF37; /* Or élégant */
             --secondary-color: #247BA0; /* Bleu complémentaire */
             --light-color: #F5F5F5; /* Gris très clair */
-            --dark-color: #333333; /* Noir adouci */
+            --dark-color: #1a1a2e; /* Noir adouci */
             --text-color: #444444; /* Gris foncé pour texte */
+            --excel-color: #217346; /* Vert Excel */
+            --gradient-primary: linear-gradient(135deg, #0A2463, #1E3A8A);
+            --gradient-excel: linear-gradient(135deg, #217346, #1e5e3a);
+            --gradient-gold: linear-gradient(135deg, #D4AF37, #BF9B30);
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             background-color: var(--light-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
         
         .navbar {
             background-color: var(--primary-color);
             padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .navbar.scrolled {
+            padding: 10px 0;
+            background-color: rgba(10, 36, 99, 0.95);
+            backdrop-filter: blur(10px);
         }
         
         .logo {
@@ -36,6 +63,7 @@
             font-size: 1.8rem;
             color: white;
             text-decoration: none;
+            letter-spacing: 1px;
         }
         
         .logo-tagline {
@@ -45,123 +73,188 @@
             margin-left: 10px;
         }
         
-        .promo-banner {
-            background: linear-gradient(135deg, var(--primary-color), #1E3A8A);
+        .nav-link {
+            font-weight: 500;
+            margin: 0 5px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+        
+        .hero-section {
+            background: var(--gradient-primary);
             color: white;
-            padding: 40px 0;
+            padding: 120px 0 100px;
+            position: relative;
+            overflow: hidden;
             text-align: center;
         }
         
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
         .promo-percent {
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 800;
-            color: var(--accent-color);
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             margin: 15px 0;
+            display: inline-block;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
         }
         
         .services-section {
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            margin-top: -30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            padding: 60px 30px;
+            margin-top: -50px;
             position: relative;
+            z-index: 2;
         }
         
         .service-item {
-            padding: 20px;
+            padding: 30px 25px;
             border-left: 4px solid var(--accent-color);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             background-color: var(--light-color);
-            border-radius: 0 8px 8px 0;
-            transition: all 0.3s ease;
+            border-radius: 0 12px 12px 0;
+            transition: all 0.4s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-item.excel-service {
+            border-left-color: var(--excel-color);
+        }
+        
+        .service-item.excel-service::before {
+            background: linear-gradient(135deg, rgba(33, 115, 70, 0.05), transparent);
         }
         
         .service-item:hover {
-            transform: translateX(5px);
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
-            background-color: #f0f8ff;
+            transform: translateX(8px);
+            box-shadow: var(--shadow-hover);
         }
         
-        .catalogue-section {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 30px;
-            margin: 40px 0;
+        .service-item:hover::before {
+            opacity: 1;
         }
         
-        .price-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-            height: 100%;
+        .service-icon {
+            font-size: 2.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
         }
         
-        .price-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            border-color: var(--accent-color);
+        .service-icon.excel-icon {
+            color: var(--excel-color);
         }
         
-        .price-card h4 {
-            color: var(--primary-color);
-            min-height: 60px;
-        }
-        
-        .price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            margin: 15px 0;
-        }
-        
-        .old-price {
-            font-size: 1.2rem;
-            text-decoration: line-through;
-            color: #718096;
-            margin-right: 10px;
-        }
-        
-        .discount-badge {
-            background-color: var(--accent-color);
+        .service-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--gradient-gold);
             color: var(--dark-color);
-            padding: 3px 8px;
-            border-radius: 15px;
+            padding: 5px 12px;
+            border-radius: 20px;
             font-size: 0.8rem;
             font-weight: bold;
-            margin-left: 10px;
         }
         
-        .price-small {
-            font-size: 1.2rem;
-        }
-        
-        .price-note {
-            font-size: 0.9rem;
-            color: #718096;
-            margin-top: 20px;
-            font-style: italic;
-        }
-        
-        .key-image {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            margin: 0 auto 15px;
-            display: block;
+        .excel-badge {
+            background: var(--gradient-excel);
+            color: white;
         }
         
         .cta-section {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: var(--gradient-primary);
             color: white;
-            padding: 50px 0;
+            padding: 80px 0;
             text-align: center;
-            margin-top: 40px;
-            border-radius: 10px;
+            margin-top: 60px;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
         }
         
         .urgency-note {
@@ -172,68 +265,86 @@
         }
         
         @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        
-        .divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-            margin: 25px 0;
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
         
         .btn-promo {
-            background-color: var(--accent-color);
+            background: var(--gradient-gold);
             color: var(--dark-color);
-            padding: 12px 30px;
+            padding: 14px 35px;
             font-weight: 700;
             border: none;
             border-radius: 30px;
             transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
         }
         
         .btn-promo:hover {
-            background-color: #BF9B30;
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
             color: var(--dark-color);
         }
         
         .header-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
             color: var(--accent-color);
         }
         
         .company-info {
-            background-color: var(--primary-color);
+            background: var(--gradient-primary);
             color: white;
-            padding: 30px 0;
-            border-radius: 10px;
-            margin-top: 40px;
+            padding: 60px 0;
+            border-radius: 15px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .company-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .company-content {
+            position: relative;
+            z-index: 1;
         }
         
         .footer {
             background-color: var(--dark-color);
             color: white;
-            padding: 30px 0;
+            padding: 50px 0 30px;
+            margin-top: 60px;
         }
         
         .social-icons a {
             color: white;
             font-size: 1.5rem;
             margin-right: 15px;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
         }
         
         .social-icons a:hover {
             color: var(--accent-color);
-        }
-        
-        .key-icon {
-            font-size: 2.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
         }
         
         .form-label.required::after {
@@ -245,114 +356,112 @@
             position: fixed;
             width: 60px;
             height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #25d366, #128C7E);
             color: #FFF;
             border-radius: 50px;
             text-align: center;
             font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
             z-index: 100;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
         }
         
         .whatsapp-float:hover {
-            background-color: #128C7E;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.6);
             color: white;
         }
         
-        .whatsapp-business-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 110px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .modal-content {
+            border-radius: 15px;
+            overflow: hidden;
+            border: none;
+            box-shadow: var(--shadow-hover);
         }
         
-        .whatsapp-business-float:hover {
-            background-color: #128C7E;
+        .modal-header {
+            background: var(--gradient-primary);
             color: white;
+            border-bottom: none;
+            padding: 20px 25px;
         }
         
-        .facebook-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 180px;
-            right: 40px;
-            background-color: #3b5998;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .modal-title {
+            font-weight: 700;
         }
         
-        .facebook-float:hover {
-            background-color: #2d4373;
-            color: white;
+        .btn-close {
+            filter: invert(1);
         }
         
-        .contact-options {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
+        .form-control, .form-select {
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
         }
         
-        .contact-card {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 200px;
-            transition: transform 0.3s ease;
+        .form-control:focus, .form-select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.25);
         }
         
-        .contact-card:hover {
-            transform: translateY(-5px);
+        .form-check-input:checked {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
         }
         
-        .contact-icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            color: var(--primary-color);
+        .animate-fade-in {
+            animation: fadeIn 1s ease;
         }
         
-        .contact-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: var(--primary-color);
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        .contact-description {
-            font-size: 0.9rem;
-            color: var(--text-color);
-            margin-bottom: 15px;
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease;
+        }
+        
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease;
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        #keyFields, #excelFields {
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 100px 0 80px;
+            }
+            
+            .services-section {
+                margin-top: -30px;
+                padding: 40px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <span class="logo">AMELTEK</span>
@@ -364,33 +473,33 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Accueil</a>
+                        <a class="nav-link active" href="#home">Accueil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#catalogue">Catalogue</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#about">À propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Promotion Banner -->
-    <div class="promo-banner py-5">
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
         <div class="container">
-            <h1 class="display-4 fw-bold">SPECIAL PROMO</h1>
-            <div class="promo-percent">-35%</div>
-            <h2 class="mt-3">CLES, WEB & DATA</h2>
+            <div class="hero-content text-center animate-fade-in">
+                <h1 class="display-4 fw-bold">SOLUTIONS TECHNOLOGIQUES PROFESSIONNELLES</h1>
+                <div class="promo-percent">-35%</div>
+                <h2 class="mt-3 mb-4">CLÉS, WEB, DATA & FORMATION EXCEL</h2>
+                <p class="lead mb-5">Services experts avec une remise exceptionnelle limitée dans le temps</p>
+                <button class="btn btn-promo btn-lg" data-bs-toggle="modal" data-bs-target="#contactModal">
+                    Profiter de l'offre <i class="fas fa-arrow-right ms-2"></i>
+                </button>
+            </div>
         </div>
-    </div>
+    </section>
     
     <!-- Services Section -->
     <div class="container" id="services">
@@ -399,116 +508,81 @@
                 <div class="header-icon">
                     <i class="fas fa-concierge-bell"></i>
                 </div>
-                <h2 class="fw-bold">Services</h2>
+                <h2 class="section-title">Nos Services Professionnels</h2>
+                <p class="lead">Des solutions complètes adaptées à vos besoins</p>
             </div>
             
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6 animate-slide-in-left">
                     <div class="service-item">
-                        <h4><i class="fas fa-key me-2"></i> Reprogrammation de clés perdues</h4>
-                        <p>Service professionnel pour remplacer vos clés perdues ou défectueuses</p>
+                        <div class="service-icon">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <span class="service-badge">-35%</span>
+                        <h4>Reprogrammation de clés perdues</h4>
+                        <p>Service professionnel pour remplacer vos clés perdues ou défectueuses avec garantie et expertise technique avancée.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 animate-slide-in-right">
                     <div class="service-item">
-                        <h4><i class="fas fa-clone me-2"></i> Clonage de clés électroniques</h4>
-                        <p>Duplication précise de vos clés électroniques avec garantie</p>
+                        <div class="service-icon">
+                            <i class="fas fa-clone"></i>
+                        </div>
+                        <span class="service-badge">-35%</span>
+                        <h4>Clonage de clés électroniques</h4>
+                        <p>Duplication précise de vos clés électroniques avec équipement de pointe et garantie de fonctionnement optimal.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 animate-slide-in-left">
                     <div class="service-item">
-                        <h4><i class="fas fa-laptop-code me-2"></i> Création d'applications web sur-mesure</h4>
-                        <p>Développement d'applications web adaptées à vos besoins spécifiques</p>
+                        <div class="service-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <span class="service-badge">-35%</span>
+                        <h4>Création d'applications web sur-mesure</h4>
+                        <p>Développement d'applications web performantes adaptées à vos besoins spécifiques avec technologies modernes.</p>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 animate-slide-in-right">
                     <div class="service-item">
-                        <h4><i class="fas fa-chart-line me-2"></i> Consultance en Analyse de Données Business</h4>
-                        <p>Expertise pour transformer vos données en insights actionnables</p>
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <span class="service-badge">-35%</span>
+                        <h4>Consultance en Analyse de Données Business</h4>
+                        <p>Expertise avancée pour transformer vos données en insights actionnables et stratégies business rentables.</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="divider"></div>
-            
-            <!-- Call to Action -->
-            <div class="text-center py-3">
-                <h3 class="mb-4">Profitez de cette offre spéciale</h3>
-                <p class="urgency-note"><i class="fas fa-exclamation-circle me-2"></i>Hâtez-vous ! Offre limitée dans le temps</p>
-                <button class="btn btn-promo btn-lg mt-3" data-bs-toggle="modal" data-bs-target="#contactModal">
-                    Profiter de l'offre <i class="fas fa-arrow-right ms-2"></i>
-                </button>
+                <!-- Service Excel intégré -->
+                <div class="col-lg-12 animate-fade-in">
+                    <div class="service-item excel-service">
+                        <div class="service-icon excel-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <span class="service-badge excel-badge">Nouveau</span>
+                        <h4>Formation Excel en ligne - 2021</h4>
+                        <p>Formation complète Excel 2021 pour maîtriser les fonctionnalités avancées et optimiser votre productivité. Horaires flexibles: 19h30-20h30 les Lundi, Mardi & Jeudi.</p>
+                        <div class="mt-3">
+                            <span class="badge bg-success me-2">63$ complet</span>
+                            <span class="badge bg-primary me-2">20$/semaine</span>
+                            <span class="badge bg-info">7$/séance</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     
-    <!-- Catalogue Section -->
-    <div class="container" id="catalogue">
-        <div class="catalogue-section">
-            <div class="text-center mb-5">
-                <div class="header-icon">
-                    <i class="fas fa-tags"></i>
-                </div>
-                <h2 class="fw-bold">Catalogue Reproduction de Clés</h2>
-                <p class="lead">Découvrez nos tarifs promotionnels avec -35% sur tous types de clés</p>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <div class="price-card">
-                        <img src="./Cle simple.jpg" alt="Type simple à puce" class="key-image">
-                        <h4>Type simple à puce</h4>
-                        <div class="price">
-                            <span class="old-price">100$</span>
-                            <span>65$</span>
-                            <span class="discount-badge">-35%</span>
-                        </div>
-                        <p>Clé standard avec puce électronique pour véhicules courants</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 mb-4">
-                    <div class="price-card">
-                        <img src="./Cle telecommande.webp" alt="Type télécommande à puce et lame fixe" class="key-image">
-                        <h4>Type télécommande à puce et lame fixe</h4>
-                        <div class="price">
-                            <span class="old-price">120$</span>
-                            <span>78$</span>
-                            <span class="discount-badge">-35%</span>
-                        </div>
-                        <p>Clé avec télécommande intégrée et lame fixe pour plus de confort</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 mb-4">
-                    <div class="price-card">
-                        <img src="./Cle smart.jpg" alt="Type push main libre à puce" class="key-image">
-                        <h4>Type push main libre à puce</h4>
-                        <div class="price">
-                            <span class="old-price">154$</span>
-                            <span>100$</span>
-                            <span class="discount-badge">-35%</span>
-                        </div>
-                        <p>Clé haut de gamme avec fonction main libre et système push-to-start</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 mb-4">
-                    <div class="price-card">
-                        <img src="./Cle rabatable.jpg" alt="Type télécommande à puce et lame rabattable" class="key-image">
-                        <h4>Type télécommande à puce et lame rabattable</h4>
-                        <div class="price">
-                            <span class="old-price">131$</span>
-                            <span>85$</span>
-                            <span class="discount-badge">-35%</span>
-                        </div>
-                        <p>Clé avec télécommande intégrée et lame rabattable pour plus de confort</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="price-note text-center">
-                <p><strong>Important:</strong> Merci de fournir le numéro de châssis, le modèle et la marque de la voiture pour toute commande de clé.</p>
+    <!-- CTA Section -->
+    <div class="container mt-5" id="cta">
+        <div class="cta-section">
+            <div class="cta-content">
+                <h2 class="display-5 fw-bold mb-4">Ne manquez pas cette opportunité</h2>
+                <p class="lead mb-4">Profitez de -35% sur tous nos services ou inscrivez-vous à notre formation Excel</p>
+                <p class="urgency-note mb-4"><i class="fas fa-exclamation-circle me-2"></i>Offre limitée dans le temps</p>
+                <button class="btn btn-light btn-lg fw-bold" data-bs-toggle="modal" data-bs-target="#contactModal">
+                    Nous contacter <i class="fab fa-whatsapp ms-2"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -516,65 +590,22 @@
     <!-- Company Info Section -->
     <div class="container" id="about">
         <div class="company-info text-center">
-            <h2 class="mb-3">À propos de AMELTEK ENGINEERING</h2>
-            <p class="lead mx-auto" style="max-width: 700px;">
-                AMELTEK ENGINEERING est une startup technologique spécialisée dans les solutions innovantes 
-                de reprogrammation de clés, développement web et analyse de données. Notre équipe d'experts 
-                s'engage à fournir des services de haute qualité adaptés à vos besoins spécifiques.
-            </p>
-        </div>
-    </div>
-    
-    <!-- Contact Section -->
-    <div class="container" id="contact">
-        <div class="catalogue-section">
-            <div class="text-center mb-5">
-                <div class="header-icon">
-                    <i class="fas fa-phone-alt"></i>
-                </div>
-                <h2 class="fw-bold">Contactez-nous</h2>
-                <p class="lead">Nous sommes disponibles sur les deux numéros WhatsApp</p>
+            <div class="company-content">
+                <h2 class="section-title text-white mb-4">À propos de AMELTEK ENGINEERING</h2>
+                <p class="lead mx-auto mb-4" style="max-width: 800px;">
+                    AMELTEK ENGINEERING est une startup technologique innovante spécialisée dans les solutions 
+                    de reprogrammation de clés, développement web, analyse de données et formation Excel. 
+                </p>
+                <p class="mx-auto" style="max-width: 800px;">
+                    Notre équipe d'experts s'engage à fournir des services de haute qualité adaptés à vos besoins 
+                    avec un accompagnement personnalisé et des technologies de pointe.
+                </p>
             </div>
-            
-            <div class="contact-options">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-title">WhatsApp Messenger</div>
-                    <div class="contact-description">Pour une assistance rapide et personnelle</div>
-                    <a href="https://wa.me/243999075877" class="btn btn-promo btn-sm">
-                        <i class="fab fa-whatsapp me-2"></i>Nous contacter
-                    </a>
-                </div>
-                
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
-                    <div class="contact-title">WhatsApp Business</div>
-                    <div class="contact-description">Pour des demandes professionnelles et devis</div>
-                    <a href="https://wa.me/243999075877" class="btn btn-promo btn-sm">
-                        <i class="fab fa-whatsapp me-2"></i>Nous contacter
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Additional CTA Section -->
-    <div class="container mt-5">
-        <div class="cta-section">
-            <h2 class="display-5 fw-bold mb-4">Ne manquez pas cette opportunité</h2>
-            <p class="lead mb-4">Contactez-nous dès aujourd'hui pour bénéficier de -35% sur tous nos services</p>
-            <button class="btn btn-light btn-lg fw-bold" data-bs-toggle="modal" data-bs-target="#contactModal">
-                Nous contacter <i class="fab fa-whatsapp ms-2"></i>
-            </button>
         </div>
     </div>
     
     <!-- Footer -->
-    <footer class="footer text-center mt-5">
+    <footer class="footer text-center">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 mb-4 mb-md-0">
@@ -582,14 +613,13 @@
                     <p>Technology Engineering Startup</p>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
-                    <h5>Contacts WhatsApp</h5>
-                    <p><i class="fab fa-whatsapp me-2"></i>Messenger: +243 999 075 877</p>
-                    <p><i class="fab fa-whatsapp me-2"></i>Business: +243 999 075 877</p>
+                    <h5>Contact WhatsApp</h5>
+                    <p><i class="fab fa-whatsapp me-2"></i>+243 999 075 877</p>
                 </div>
                 <div class="col-md-4">
                     <h5>Suivez-nous</h5>
                     <div class="social-icons">
-                        <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://wa.me/243999075877" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
@@ -605,54 +635,18 @@
         <i class="fab fa-whatsapp"></i>
     </a>
     
-    <!-- Floating WhatsApp Business Button -->
-    <a href="https://wa.me/243999075877?text=Bonjour%20AMELTEK%20ENGINEERING,%20je%20suis%20intéressé%20par%20vos%20services" 
-       class="whatsapp-business-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    
-    <!-- Floating Facebook Button -->
-    <a href="https://web.facebook.com/?_rdc=1&_rdr" 
-       class="facebook-float" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    
     <!-- Contact Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Demande de service - WhatsApp</h5>
+                    <h5 class="modal-title" id="contactModalLabel">Formulaire - Client </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="alert alert-info">
                         <i class="fas fa-info-circle me-2"></i>
-                        Toutes les demandes seront traitées via WhatsApp. Veuillez choisir votre option préférée et vous serez redirigé vers WhatsApp pour finaliser votre demande.
-                    </div>
-                    
-                    <div class="contact-options mb-4">
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-title">WhatsApp Messenger</div>
-                            <div class="contact-description">Pour une assistance rapide et personnelle</div>
-                            <button class="btn btn-promo btn-sm contact-whatsapp" data-type="messenger">
-                                <i class="fab fa-whatsapp me-2"></i>Choisir cette option
-                            </button>
-                        </div>
-                        
-                        <div class="contact-card">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div class="contact-title">WhatsApp Business</div>
-                            <div class="contact-description">Pour des demandes professionnelles et devis</div>
-                            <button class="btn btn-promo btn-sm contact-whatsapp" data-type="business">
-                                <i class="fab fa-whatsapp me-2"></i>Choisir cette option
-                            </button>
-                        </div>
+                        Toutes les demandes seront traitées via WhatsApp. Vous serez redirigé vers WhatsApp pour finaliser votre demande.
                     </div>
                     
                     <form id="whatsappForm">
@@ -675,9 +669,11 @@
                                 <option value="clonage">Clonage de clés électroniques</option>
                                 <option value="application">Création d'applications web</option>
                                 <option value="consultance">Consultance en Analyse de Données</option>
+                                <option value="excel">Formation Excel en ligne</option>
                             </select>
                         </div>
                         
+                        <!-- Champs pour les services de clés -->
                         <div id="keyFields">
                             <div class="mb-3">
                                 <label for="keyType" class="form-label required">Type de clé</label>
@@ -706,6 +702,46 @@
                             </div>
                         </div>
                         
+                        <!-- Champs pour la formation Excel -->
+                        <div id="excelFields">
+                            <div class="mb-3">
+                                <label class="form-label required">Option de paiement</label>
+                                <div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentOption" id="fullPayment" value="full">
+                                        <label class="form-check-label" for="fullPayment">
+                                            Paiement complet (63$)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentOption" id="weeklyPayment" value="weekly">
+                                        <label class="form-check-label" for="weeklyPayment">
+                                            Paiement par semaine (20$/semaine)
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="paymentOption" id="sessionPayment" value="session">
+                                        <label class="form-check-label" for="sessionPayment">
+                                            Paiement par séance (7$/séance)
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="excelSchedule" class="form-label">Préférence d'horaire</label>
+                                <select class="form-select" id="excelSchedule">
+                                    <option value="" selected>Disponible pour tous les horaires</option>
+                                    <option value="lundi">Lundi uniquement</option>
+                                    <option value="mardi">Mardi uniquement</option>
+                                    <option value="jeudi">Jeudi uniquement</option>
+                                    <option value="lundi-mardi">Lundi et Mardi</option>
+                                    <option value="lundi-jeudi">Lundi et Jeudi</option>
+                                    <option value="mardi-jeudi">Mardi et Jeudi</option>
+                                </select>
+                            </div>
+                        </div>
+                        
                         <div class="mb-3">
                             <label for="message" class="form-label">Message supplémentaire</label>
                             <textarea class="form-control" id="message" rows="3" placeholder="Décrivez brièvement votre besoin..."></textarea>
@@ -714,7 +750,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-                    <button type="button" class="btn btn-promo" id="sendWhatsApp" disabled>
+                    <button type="button" class="btn btn-promo" id="sendWhatsApp">
                         <i class="fab fa-whatsapp me-2"></i>Envoyer via WhatsApp
                     </button>
                 </div>
@@ -729,51 +765,56 @@
             const urgencyNote = document.querySelector('.urgency-note');
             const serviceSelect = document.getElementById('service');
             const keyFields = document.getElementById('keyFields');
+            const excelFields = document.getElementById('excelFields');
             const whatsappForm = document.getElementById('whatsappForm');
             const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
-            const contactWhatsAppButtons = document.querySelectorAll('.contact-whatsapp');
-            let selectedWhatsAppType = null;
+            const navbar = document.querySelector('.navbar');
+            
+            // Navbar scroll effect
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
             
             // Animation de pulsation continue
             setInterval(() => {
                 urgencyNote.style.transform = urgencyNote.style.transform === 'scale(1.05)' ? 'scale(1)' : 'scale(1.05)';
             }, 1000);
             
-            // Afficher/masquer les champs pour les clés
+            // Afficher/masquer les champs selon le service sélectionné
             serviceSelect.addEventListener('change', function() {
-                if (this.value === 'reprogrammation' || this.value === 'clonage') {
+                const selectedService = this.value;
+                
+                // Masquer tous les champs spécifiques d'abord
+                keyFields.style.display = 'none';
+                excelFields.style.display = 'none';
+                
+                // Rendre tous les champs non obligatoires d'abord
+                document.getElementById('keyType').required = false;
+                document.getElementById('carBrand').required = false;
+                document.getElementById('carModel').required = false;
+                document.getElementById('chassis').required = false;
+                
+                // Services de clés
+                if (selectedService === 'reprogrammation' || selectedService === 'clonage') {
                     keyFields.style.display = 'block';
                     // Rendre les champs obligatoires
                     document.getElementById('keyType').required = true;
                     document.getElementById('carBrand').required = true;
                     document.getElementById('carModel').required = true;
                     document.getElementById('chassis').required = true;
-                } else {
-                    keyFields.style.display = 'none';
-                    // Rendre les champs non obligatoires
-                    document.getElementById('keyType').required = false;
-                    document.getElementById('carBrand').required = false;
-                    document.getElementById('carModel').required = false;
-                    document.getElementById('chassis').required = false;
-                }
-            });
-            
-            // Choix du type WhatsApp
-            contactWhatsAppButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    selectedWhatsAppType = this.dataset.type;
-                    
-                    // Mettre en évidence le bouton sélectionné
-                    contactWhatsAppButtons.forEach(btn => {
-                        btn.classList.remove('btn-promo');
-                        btn.classList.add('btn-outline-primary');
+                } 
+                // Formation Excel
+                else if (selectedService === 'excel') {
+                    excelFields.style.display = 'block';
+                    // Rendre les options de paiement obligatoires
+                    document.querySelectorAll('input[name="paymentOption"]').forEach(radio => {
+                        radio.required = true;
                     });
-                    this.classList.remove('btn-outline-primary');
-                    this.classList.add('btn-promo');
-                    
-                    // Activer le bouton d'envoi
-                    sendWhatsAppBtn.disabled = false;
-                });
+                }
             });
             
             // Envoyer le formulaire via WhatsApp
@@ -781,11 +822,6 @@
                 // Validation des champs requis
                 if (!whatsappForm.checkValidity()) {
                     whatsappForm.reportValidity();
-                    return;
-                }
-                
-                if (!selectedWhatsAppType) {
-                    alert('Veuillez choisir une option WhatsApp');
                     return;
                 }
                 
@@ -805,18 +841,40 @@
                 whatsappMessage += `*Téléphone:* ${phone}%0A`;
                 whatsappMessage += `*Service demandé:* ${serviceSelect.options[serviceSelect.selectedIndex].text}%0A`;
                 
+                // Informations pour les services de clés
                 if (service === 'reprogrammation' || service === 'clonage') {
                     whatsappMessage += `*Type de clé:* ${document.getElementById('keyType').options[document.getElementById('keyType').selectedIndex].text}%0A`;
                     whatsappMessage += `*Marque du véhicule:* ${carBrand}%0A`;
                     whatsappMessage += `*Modèle du véhicule:* ${carModel}%0A`;
                     whatsappMessage += `*Numéro de châssis:* ${chassis}%0A`;
+                } 
+                // Informations pour la formation Excel
+                else if (service === 'excel') {
+                    const paymentOption = document.querySelector('input[name="paymentOption"]:checked');
+                    if (paymentOption) {
+                        let paymentText = '';
+                        switch(paymentOption.value) {
+                            case 'full': paymentText = 'Paiement complet (63$)'; break;
+                            case 'weekly': paymentText = 'Paiement par semaine (20$/semaine)'; break;
+                            case 'session': paymentText = 'Paiement par séance (7$/séance)'; break;
+                        }
+                        whatsappMessage += `*Option de paiement:* ${paymentText}%0A`;
+                    }
+                    
+                    const schedule = document.getElementById('excelSchedule').value;
+                    if (schedule) {
+                        whatsappMessage += `*Préférence d'horaire:* ${document.getElementById('excelSchedule').options[document.getElementById('excelSchedule').selectedIndex].text}%0A`;
+                    }
                 }
                 
                 if (message) {
                     whatsappMessage += `*Message:* ${message}%0A`;
                 }
                 
-                whatsappMessage += `%0AJe souhaite bénéficier de l'offre promotionnelle de -35%.`;
+                // Ajouter la mention de promotion pour les services concernés
+                if (service !== 'excel') {
+                    whatsappMessage += `%0AJe souhaite bénéficier de l'offre promotionnelle de -35%.`;
+                }
                 
                 // Ouvrir WhatsApp avec le message pré-rempli
                 const whatsappURL = `https://wa.me/243999075877?text=${whatsappMessage}`;
@@ -828,63 +886,32 @@
             });
             
             // Animation des éléments au défilement
-            const serviceItems = document.querySelectorAll('.service-item');
-            const priceCards = document.querySelectorAll('.price-card');
-            const contactCards = document.querySelectorAll('.contact-card');
+            const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right');
             
             function checkScroll() {
-                serviceItems.forEach(item => {
-                    const position = item.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
+                animateElements.forEach(element => {
+                    const position = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
                     
                     if (position < screenPosition) {
-                        item.style.opacity = 1;
-                        item.style.transform = 'translateX(0)';
-                    }
-                });
-                
-                priceCards.forEach(card => {
-                    const position = card.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (position < screenPosition) {
-                        card.style.opacity = 1;
-                        card.style.transform = 'translateY(0)';
-                    }
-                });
-                
-                contactCards.forEach(card => {
-                    const position = card.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    
-                    if (position < screenPosition) {
-                        card.style.opacity = 1;
-                        card.style.transform = 'translateY(0)';
+                        element.style.opacity = 1;
+                        element.style.transform = 'translate(0)';
                     }
                 });
             }
             
             // Initialiser l'opacité
-            serviceItems.forEach(item => {
-                item.style.opacity = 0;
-                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-            
-            priceCards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-            
-            contactCards.forEach(card => {
-                card.style.opacity = 0;
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            animateElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             });
             
             window.addEventListener('scroll', checkScroll);
             checkScroll();
             
-            // Masquer initialement les champs de clés
+            // Masquer initialement les champs spécifiques
             keyFields.style.display = 'none';
+            excelFields.style.display = 'none';
         });
     </script>
 </body>
