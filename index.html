@@ -472,6 +472,48 @@
             overflow-y: auto;
         }
         
+        .price-card {
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .price-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .price-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .price-body {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .price-promo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .price-note {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 10px;
+        }
+        
         @media (max-width: 768px) {
             .hero-section {
                 padding: 100px 0 80px;
@@ -551,10 +593,70 @@
                         <span class="service-badge">-35%</span>
                         <h4>Reprogrammation de clés perdues</h4>
                         <p>Service professionnel pour remplacer vos clés perdues ou défectueuses avec garantie et expertise technique avancée.</p>
-                        <ul class="mt-3">
-                            <li>Reprogrammation sécurisée</li>
-                            <li>Garantie de fonctionnement</li>
-                        </ul>
+                        
+                        <!-- Tableau des prix pour la programmation -->
+                        <div class="mt-4">
+                            <h5>Tarifs Programmation:</h5>
+                            <div class="row mt-3">
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Type Simple</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-promo">80$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-amount">130$</div>
+                                            <div>2 clés</div>
+                                            <div class="price-note">Promotion</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Lame Fixe</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-promo">95$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-amount">180$</div>
+                                            <div>2 clés</div>
+                                            <div class="price-note">Promotion</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Lame Rabattable</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-promo">100$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-amount">170$</div>
+                                            <div>2 clés</div>
+                                            <div class="price-note">Promotion</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Smart Key</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-promo">130$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-amount">200$</div>
+                                            <div>2 clés</div>
+                                            <div class="price-note">Promotion</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="mt-3">
                             <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('reprogrammation')">
                                 Demander ce service
@@ -572,6 +674,62 @@
                         <span class="service-badge">-35%</span>
                         <h4>Clonage de clés électroniques</h4>
                         <p>Duplication précise de vos clés électroniques avec équipement de pointe et garantie de fonctionnement optimal.</p>
+                        
+                        <!-- Tableau des prix pour le clonage -->
+                        <div class="mt-4">
+                            <h5>Tarifs Clonage:</h5>
+                            <div class="row mt-3">
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Type Simple</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-amount">65$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-note">Prix standard</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Télécommande</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-amount">78$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-note">Prix standard</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Push Main Libre</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-amount">100$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-note">Prix standard</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="price-card">
+                                        <div class="price-header">
+                                            <h6>Lame Rabattable</h6>
+                                        </div>
+                                        <div class="price-body">
+                                            <div class="price-amount">85$</div>
+                                            <div>1 clé</div>
+                                            <div class="price-note">Prix standard</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <ul class="mt-3">
                             <li>Technologie de clonage avancée</li>
                             <li>Compatibilité multi-marques</li>
@@ -759,10 +917,10 @@
                                 <label for="keyType" class="form-label required">Type de clé</label>
                                 <select class="form-select" id="keyType">
                                     <option value="" selected disabled>Choisir un type de clé...</option>
-                                    <option value="simple" data-price="65">Type simple à puce (65$)</option>
-                                    <option value="telecommande" data-price="78">Type télécommande à puce et lame fixe (78$)</option>
-                                    <option value="push" data-price="100">Type push main libre à puce (100$)</option>
-                                    <option value="premium" data-price="85">Type télécommande à puce et lame rabattable (85$)</option>
+                                    <option value="simple">Type simple à puce</option>
+                                    <option value="lame-fixe">Type télécommande à puce et lame fixe</option>
+                                    <option value="lame-rabattable">Type télécommande à puce et lame rabattable</option>
+                                    <option value="smart-key">Type smart key (main libre)</option>
                                 </select>
                             </div>
                             
@@ -778,6 +936,20 @@
                                 <div class="col-md-4 mb-3">
                                     <label for="chassis" class="form-label required">Numéro de châssis</label>
                                     <input type="text" class="form-control" id="chassis">
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="keyNumber" class="form-label required">Nombre de clés</label>
+                                    <select class="form-select" id="keyNumber">
+                                        <option value="1">1 clé</option>
+                                        <option value="2">2 clés</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Service demandé</label>
+                                    <div id="serviceType" class="form-control bg-light">Programmation</div>
                                 </div>
                             </div>
                         </div>
@@ -891,167 +1063,6 @@
                                         <option value="mardi-jeudi">Mardi et Jeudi</option>
                                     </select>
                                 </div>
-                                
-                                <!-- Programme détaillé -->
-                                <div class="mt-4">
-                                    <h5 class="mb-3">Programme de la Formation</h5>
-                                    <div class="accordion" id="excelCurriculum">
-                                        <!-- Chapitre 1 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                                    <strong>Chapitre 1: Fondamentaux d'Excel</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Interface Excel et navigation</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Structure d'une feuille de calcul</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Enregistrement et ouverture de documents</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Gestion des classeurs et feuilles</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Personnalisation de l'interface</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Chapitre 2 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                                    <strong>Chapitre 2: Saisie de données et formules</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Entrer textes, nombres et dates</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Créer des formules avec références</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Références relatives, absolues et mixtes</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Copier et coller des formules</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Utilisation des opérateurs arithmétiques</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Chapitre 3 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                                    <strong>Chapitre 3: Fonctions essentielles</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions mathématiques (SOMME, MOYENNE, etc.)</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de texte (GAUCHE, DROITE, STXT)</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de date et heure</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions logiques (SI, ET, OU)</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de recherche (RECHERCHEV)</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Chapitre 4 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                                                    <strong>Chapitre 4: Mise en forme avancée</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme conditionnelle</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Styles et thèmes</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Tableaux Excel structurés</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Validation des données</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Protection des feuilles et classeurs</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Chapitre 5 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-                                                    <strong>Chapitre 5: Formater les données dans une feuille de calcul</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Ajout de bordures de cellule</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Modification de la taille de police</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme des données en valeurs</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme des dates et heures</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en forme des cellules de feuille</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Alignement du contenu des cellules</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fusion de cellules</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Rotation des contenus d'une cellule</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Copier-coller la mise en forme</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Mise en surbrillance avec formatage conditionnel</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Insertion d'images d'arrière-plan</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Utilisation de graphiques SmartArt</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Chapitres 6 à 9 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix">
-                                                    <strong>Chapitres 6-9: Fonctionnalités avancées</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Impression de documents Excel</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Création de graphiques professionnels</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Tableaux et tableaux croisés dynamiques</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions avancées dans tableaux</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Analyse de données avec tableaux croisés</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions de recherche avancées</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Gestion des erreurs dans les formules</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Fonctions conditionnelles avancées</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Chapitre 10 -->
-                                        <div class="accordion-item">
-                                            <h2 class="accordion-header">
-                                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTen">
-                                                    <strong>Chapitre 10: Travailler avec multiples feuilles et classeurs</strong>
-                                                </button>
-                                            </h2>
-                                            <div id="collapseTen" class="accordion-collapse collapse" data-bs-parent="#excelCurriculum">
-                                                <div class="accordion-body">
-                                                    <ul class="list-unstyled">
-                                                        <li><i class="fas fa-check text-success me-2"></i>Référencement de cellules dans d'autres feuilles</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Liaison de classeurs</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Mise à jour des classeurs liés</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Création de formules avec références externes</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Navigation dans plusieurs classeurs</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Organisation de multiples classeurs</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Validation de la saisie des données</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Protection d'une feuille de calcul et d'un classeur</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Verrouillage et déverrouillage des cellules</li>
-                                                        <li><i class="fas fa-check text-success me-2"></i>Configuration de la protection des données</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         
@@ -1124,6 +1135,7 @@
             const excelFields = document.getElementById('excelFields');
             const webFields = document.getElementById('webFields');
             const dataFields = document.getElementById('dataFields');
+            const serviceType = document.getElementById('serviceType');
             const whatsappForm = document.getElementById('whatsappForm');
             const sendWhatsAppBtn = document.getElementById('sendWhatsApp');
             const navbar = document.querySelector('.navbar');
@@ -1152,6 +1164,7 @@
                 document.getElementById('carBrand').required = false;
                 document.getElementById('carModel').required = false;
                 document.getElementById('chassis').required = false;
+                document.getElementById('keyNumber').required = false;
                 document.getElementById('projectType').required = false;
                 document.getElementById('dataType').required = false;
                 
@@ -1163,6 +1176,14 @@
                     document.getElementById('carBrand').required = true;
                     document.getElementById('carModel').required = true;
                     document.getElementById('chassis').required = true;
+                    document.getElementById('keyNumber').required = true;
+                    
+                    // Mettre à jour le type de service affiché
+                    if (selectedService === 'reprogrammation') {
+                        serviceType.textContent = 'Programmation';
+                    } else {
+                        serviceType.textContent = 'Clonage';
+                    }
                 } 
                 // Formation Excel
                 else if (selectedService === 'excel') {
@@ -1199,6 +1220,7 @@
                 const carBrand = document.getElementById('carBrand').value;
                 const carModel = document.getElementById('carModel').value;
                 const chassis = document.getElementById('chassis').value;
+                const keyNumber = document.getElementById('keyNumber').value;
                 const message = document.getElementById('message').value;
                 
                 // Construction du message WhatsApp
@@ -1211,9 +1233,11 @@
                 // Informations pour les services de clés
                 if (service === 'reprogrammation' || service === 'clonage') {
                     whatsappMessage += `*Type de clé:* ${document.getElementById('keyType').options[document.getElementById('keyType').selectedIndex].text}%0A`;
+                    whatsappMessage += `*Nombre de clés:* ${keyNumber}%0A`;
                     whatsappMessage += `*Marque du véhicule:* ${carBrand}%0A`;
                     whatsappMessage += `*Modèle du véhicule:* ${carModel}%0A`;
                     whatsappMessage += `*Numéro de châssis:* ${chassis}%0A`;
+                    whatsappMessage += `*Type de service:* ${serviceType.textContent}%0A`;
                 } 
                 // Informations pour la formation Excel
                 else if (service === 'excel') {
@@ -1309,4 +1333,3 @@
     </script>
 </body>
 </html>
-
