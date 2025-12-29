@@ -292,7 +292,7 @@
             color: white;
         }
         
-        /* Price Cards */
+        /* Price Cards - TITRES CORRIGÉS EN BLANC */
         .price-card {
             border-radius: 10px;
             overflow: hidden;
@@ -309,9 +309,15 @@
         
         .price-header {
             background: var(--gradient-primary);
-            color: white;
+            color: white !important; /* Force le texte en blanc */
             padding: 15px;
             text-align: center;
+        }
+        
+        .price-header h6 {
+            color: white !important; /* Force les titres en blanc */
+            font-weight: 600;
+            margin: 0;
         }
         
         .price-body {
@@ -575,7 +581,7 @@
         
         .catalogue-header {
             background: linear-gradient(135deg, #3182CE, #2C5282);
-            color: white;
+            color: white !important; /* Texte en blanc */
             padding: 15px 20px;
             text-align: center;
             font-weight: 700;
@@ -640,6 +646,19 @@
             font-size: 12px;
             z-index: 9999;
             display: none; /* Masquer par défaut */
+        }
+        
+        /* Titres des sections dans les services - CORRECTION */
+        .service-item h4,
+        .service-item h5,
+        .service-item h6 {
+            color: var(--primary-color) !important; /* Garde les titres en bleu dans les cartes de service */
+        }
+        
+        /* Titres des cartes de prix - FORCER EN BLANC */
+        .price-header h6.mb-0 {
+            color: white !important;
+            font-weight: 600;
         }
         
         /* Responsive */
@@ -727,8 +746,8 @@
         <div class="container">
             <div class="hero-content">
                 <div class="promo-badge animate-slide-up">OFFRE EXCEPTIONNELLE -35%</div>
-                <h1 class="display-4 fw-bold mb-4 animate-slide-up" style="animation-delay: 0.2s;">SOLUTIONS TECHNOLOGIQUES D'EXCELLENCE</h1>
-                <p class="lead mb-5 animate-slide-up" style="animation-delay: 0.4s; max-width: 700px; margin: 0 auto;">
+                <h1 class="display-4 fw-bold mb-4 animate-slide-up" style="animation-delay: 0.2s; color: white;">SOLUTIONS TECHNOLOGIQUES D'EXCELLENCE</h1>
+                <p class="lead mb-5 animate-slide-up" style="animation-delay: 0.4s; max-width: 700px; margin: 0 auto; color: white;">
                     Services experts en reprogrammation de clés, développement web, analyse de données 
                     et formation Excel avec une remise limitée dans le temps
                 </p>
@@ -795,7 +814,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Type Simple</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Type Simple</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-promo">80$</div>
@@ -809,7 +828,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Lame Fixe</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Lame Fixe</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-promo">95$</div>
@@ -823,7 +842,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Lame Rabattable</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Lame Rabattable</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-promo">100$</div>
@@ -837,7 +856,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Smart Key</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Smart Key</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-promo">130$</div>
@@ -876,7 +895,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Type Simple</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Type Simple</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-amount">65$</div>
@@ -888,7 +907,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Télécommande</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Télécommande</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-amount">78$</div>
@@ -900,7 +919,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Push Main Libre</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Push Main Libre</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-amount">100$</div>
@@ -912,7 +931,7 @@
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0">Lame Rabattable</h6>
+                                            <h6 class="mb-0" style="color: white !important;">Lame Rabattable</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-amount">85$</div>
@@ -1095,26 +1114,26 @@
             <div class="company-info">
                 <div class="company-content">
                     <h2 class="section-title text-white mb-4">À propos de AMELTEK ENGINEERING</h2>
-                    <p class="lead mx-auto mb-4" style="max-width: 800px;">
+                    <p class="lead mx-auto mb-4" style="max-width: 800px; color: white;">
                         AMELTEK ENGINEERING est une startup technologique innovante spécialisée dans les solutions 
                         de reprogrammation de clés, développement web, analyse de données et formation Excel. 
                     </p>
-                    <p class="mx-auto mb-5" style="max-width: 800px;">
+                    <p class="mx-auto mb-5" style="max-width: 800px; color: white;">
                         Notre équipe d'experts s'engage à fournir des services de haute qualité adaptés à vos besoins 
                         avec un accompagnement personnalisé et des technologies de pointe.
                     </p>
                     <div class="d-flex justify-content-center gap-3">
                         <div class="text-center">
-                            <div class="display-6 fw-bold">100%</div>
-                            <div>Satisfaction client</div>
+                            <div class="display-6 fw-bold" style="color: white;">100%</div>
+                            <div style="color: white;">Satisfaction client</div>
                         </div>
                         <div class="text-center">
-                            <div class="display-6 fw-bold">24/7</div>
-                            <div>Support disponible</div>
+                            <div class="display-6 fw-bold" style="color: white;">24/7</div>
+                            <div style="color: white;">Support disponible</div>
                         </div>
                         <div class="text-center">
-                            <div class="display-6 fw-bold">+50</div>
-                            <div>Clients satisfaits</div>
+                            <div class="display-6 fw-bold" style="color: white;">+50</div>
+                            <div style="color: white;">Clients satisfaits</div>
                         </div>
                     </div>
                 </div>
@@ -1127,18 +1146,18 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h4 class="mb-3">AMELTEK ENGINEERING</h4>
-                    <p class="mb-0">Innovation et Excellence Technologique</p>
+                    <h4 class="mb-3" style="color: white;">AMELTEK ENGINEERING</h4>
+                    <p class="mb-0" style="color: rgba(255, 255, 255, 0.8);">Innovation et Excellence Technologique</p>
                 </div>
                 <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="mb-3">Contact WhatsApp</h5>
+                    <h5 class="mb-3" style="color: white;">Contact WhatsApp</h5>
                     <p class="mb-0">
                         <i class="fab fa-whatsapp me-2 text-success"></i>
                         <a href="https://wa.me/243999075877" target="_blank" class="text-white text-decoration-none">+243 999 075 877</a>
                     </p>
                 </div>
                 <div class="col-lg-4">
-                    <h5 class="mb-3">Suivez-nous</h5>
+                    <h5 class="mb-3" style="color: white;">Suivez-nous</h5>
                     <div class="social-icons">
                         <a href="https://web.facebook.com/?_rdc=1&_rdr" target="_blank" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
@@ -1151,7 +1170,7 @@
             </div>
             <hr class="my-4 opacity-25">
             <div class="text-center pt-3">
-                <p class="mb-0">&copy; 2023 AMELTEK ENGINEERING. Tous droits réservés.</p>
+                <p class="mb-0" style="color: rgba(255, 255, 255, 0.7);">&copy; 2023 AMELTEK ENGINEERING. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
