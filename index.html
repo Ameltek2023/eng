@@ -30,13 +30,13 @@
             --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
             --border-radius: 12px;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Open Sans', sans-serif;
             background-color: var(--light-color);
@@ -45,13 +45,13 @@
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-        
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
             color: var(--primary-color);
         }
-        
+
         .navbar {
             background-color: rgba(26, 54, 93, 0.95);
             backdrop-filter: blur(10px);
@@ -59,12 +59,12 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-        
+
         .navbar.scrolled {
             padding: 12px 0;
             background-color: rgba(26, 54, 93, 0.98);
         }
-        
+
         .logo {
             font-weight: 800;
             font-size: 1.9rem;
@@ -75,11 +75,11 @@
             flex-direction: column;
             line-height: 1;
         }
-        
+
         .logo-main {
             font-size: 1.9rem;
         }
-        
+
         .logo-tagline {
             font-size: 0.75rem;
             letter-spacing: 2px;
@@ -87,7 +87,7 @@
             font-weight: 500;
             margin-top: 2px;
         }
-        
+
         .nav-link {
             font-weight: 500;
             margin: 0 8px;
@@ -95,7 +95,7 @@
             transition: all 0.3s ease;
             color: rgba(255, 255, 255, 0.9);
         }
-        
+
         .nav-link::after {
             content: '';
             position: absolute;
@@ -107,16 +107,16 @@
             transition: width 0.3s ease;
             border-radius: 2px;
         }
-        
+
         .nav-link:hover, .nav-link.active {
             color: white;
         }
-        
+
         .nav-link:hover::after,
         .nav-link.active::after {
             width: 100%;
         }
-        
+
         /* Hero Section Redesigned */
         .hero-section {
             background: var(--gradient-primary);
@@ -126,7 +126,7 @@
             overflow: hidden;
             text-align: center;
         }
-        
+
         .hero-section::before {
             content: '';
             position: absolute;
@@ -137,14 +137,14 @@
             background: radial-gradient(circle at 20% 50%, rgba(237, 137, 54, 0.15) 0%, transparent 50%),
                       radial-gradient(circle at 80% 20%, rgba(66, 153, 225, 0.1) 0%, transparent 50%);
         }
-        
+
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 900px;
             margin: 0 auto;
         }
-        
+
         .promo-badge {
             display: inline-block;
             background: var(--gradient-accent);
@@ -157,14 +157,14 @@
             box-shadow: 0 10px 20px rgba(237, 137, 54, 0.3);
             letter-spacing: 1px;
         }
-        
+
         .section-title {
             position: relative;
             margin-bottom: 50px;
             text-align: center;
             padding-bottom: 20px;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -176,12 +176,12 @@
             transform: translateX(-50%);
             border-radius: 2px;
         }
-        
+
         /* Services Section */
         .services-section {
             padding: 100px 0 80px;
         }
-        
+
         .service-item {
             background: white;
             border-radius: var(--border-radius);
@@ -194,28 +194,28 @@
             overflow: hidden;
             border-top: 5px solid var(--primary-color);
         }
-        
+
         .service-item:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-hover);
         }
-        
+
         .service-item.key-service {
             border-top-color: var(--primary-color);
         }
-        
+
         .service-item.web-service {
             border-top-color: var(--info-color);
         }
-        
+
         .service-item.data-service {
             border-top-color: var(--success-color);
         }
-        
+
         .service-item.excel-service {
             border-top-color: var(--warning-color);
         }
-        
+
         .service-icon {
             font-size: 3.2rem;
             margin-bottom: 25px;
@@ -228,27 +228,27 @@
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.1), transparent);
             color: var(--primary-color);
         }
-        
+
         .service-icon.key-icon {
             background: linear-gradient(135deg, rgba(26, 54, 93, 0.1), transparent);
             color: var(--primary-color);
         }
-        
+
         .service-icon.web-icon {
             background: linear-gradient(135deg, rgba(66, 153, 225, 0.1), transparent);
             color: var(--info-color);
         }
-        
+
         .service-icon.data-icon {
             background: linear-gradient(135deg, rgba(56, 161, 105, 0.1), transparent);
             color: var(--success-color);
         }
-        
+
         .service-icon.excel-icon {
             background: linear-gradient(135deg, rgba(214, 158, 46, 0.1), transparent);
             color: var(--warning-color);
         }
-        
+
         .service-badge {
             position: absolute;
             top: 25px;
@@ -261,19 +261,19 @@
             font-weight: bold;
             letter-spacing: 0.5px;
         }
-        
+
         .excel-badge {
             background: var(--gradient-success);
         }
-        
+
         .web-badge {
             background: var(--gradient-info);
         }
-        
+
         .data-badge {
             background: linear-gradient(135deg, #6F42C1, #5A32A3);
         }
-        
+
         .btn-promo {
             background: var(--gradient-accent);
             color: white;
@@ -285,13 +285,13 @@
             box-shadow: 0 10px 20px rgba(237, 137, 54, 0.25);
             letter-spacing: 0.5px;
         }
-        
+
         .btn-promo:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 25px rgba(237, 137, 54, 0.4);
             color: white;
         }
-        
+
         /* Price Cards - TITRES CORRIGÉS EN BLANC */
         .price-card {
             border-radius: 10px;
@@ -301,50 +301,50 @@
             background: white;
             margin-bottom: 15px;
         }
-        
+
         .price-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-hover);
         }
-        
+
         .price-header {
             background: var(--gradient-primary);
             color: white !important; /* Force le texte en blanc */
             padding: 15px;
             text-align: center;
         }
-        
+
         .price-header h6 {
             color: white !important; /* Force les titres en blanc */
             font-weight: 600;
             margin: 0;
         }
-        
+
         .price-body {
             padding: 20px;
             text-align: center;
         }
-        
+
         .price-amount {
             font-size: 2rem;
             font-weight: 700;
             color: var(--primary-color);
             margin: 10px 0;
         }
-        
+
         .price-promo {
             font-size: 1.8rem;
             font-weight: 700;
             color: var(--accent-color);
             margin: 10px 0;
         }
-        
+
         .price-note {
             font-size: 0.85rem;
             color: #718096;
             margin-top: 10px;
         }
-        
+
         /* Company Info */
         .company-info {
             background: var(--gradient-primary);
@@ -355,7 +355,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .company-info::before {
             content: '';
             position: absolute;
@@ -367,27 +367,27 @@
             background-size: cover;
             background-position: center;
         }
-        
+
         .company-content {
             position: relative;
             z-index: 2;
         }
-        
+
         .company-content .section-title {
             color: white;
         }
-        
+
         .company-content .section-title::after {
             background: var(--gradient-accent);
         }
-        
+
         /* Footer */
         .footer {
             background-color: var(--dark-color);
             color: white;
             padding: 60px 0 30px;
         }
-        
+
         .social-icons a {
             color: white;
             font-size: 1.3rem;
@@ -401,19 +401,19 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.1);
         }
-        
+
         .social-icons a:hover {
             color: var(--accent-color);
             background: rgba(255, 255, 255, 0.15);
             transform: translateY(-3px);
         }
-        
+
         /* Form Elements */
         .form-label.required::after {
             content: " *";
             color: var(--accent-color);
         }
-        
+
         .whatsapp-float {
             position: fixed;
             width: 65px;
@@ -432,12 +432,12 @@
             justify-content: center;
             transition: all 0.3s ease;
         }
-        
+
         .whatsapp-float:hover {
             transform: scale(1.1) rotate(5deg);
             box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
         }
-        
+
         /* Modal */
         .modal-content {
             border-radius: var(--border-radius);
@@ -445,43 +445,43 @@
             border: none;
             box-shadow: var(--shadow-hover);
         }
-        
+
         .modal-header {
             background: var(--gradient-primary);
             color: white;
             border-bottom: none;
             padding: 25px 30px;
         }
-        
+
         .modal-title {
             font-weight: 700;
         }
-        
+
         .btn-close {
             filter: invert(1);
             opacity: 0.8;
         }
-        
+
         .form-control, .form-select {
             padding: 14px 18px;
             border-radius: 8px;
             border: 1px solid #E2E8F0;
             transition: all 0.3s ease;
         }
-        
+
         .form-control:focus, .form-select:focus {
             border-color: var(--accent-color);
             box-shadow: 0 0 0 0.25rem rgba(237, 137, 54, 0.25);
         }
-        
+
         .form-control:invalid, .form-select:invalid {
             border-color: #e53e3e;
         }
-        
+
         .form-control:valid, .form-select:valid {
             border-color: #38a169;
         }
-        
+
         .vin-info-box {
             background-color: #f7fafc;
             border: 1px solid #e2e8f0;
@@ -490,22 +490,22 @@
             margin-top: 10px;
             font-size: 0.9rem;
         }
-        
+
         .vin-info-box a {
             color: var(--accent-color);
             font-weight: 600;
             text-decoration: none;
         }
-        
+
         .vin-info-box a:hover {
             text-decoration: underline;
         }
-        
+
         /* Champs spécifiques au formulaire */
         #keyFields, #excelFields, #webFields, #dataFields {
             display: none;
         }
-        
+
         .excel-training-section {
             background: linear-gradient(135deg, rgba(56, 161, 105, 0.05), transparent);
             border-radius: 10px;
@@ -513,61 +513,61 @@
             margin-top: 20px;
             border-left: 4px solid var(--success-color);
         }
-        
+
         .form-check-input:checked {
             background-color: var(--accent-color);
             border-color: var(--accent-color);
         }
-        
+
         /* Animations */
         .animate-fade-in {
             animation: fadeIn 1s ease forwards;
             opacity: 0;
         }
-        
+
         @keyframes fadeIn {
             to { opacity: 1; }
         }
-        
+
         .animate-slide-up {
             animation: slideUp 0.8s ease forwards;
             opacity: 0;
             transform: translateY(30px);
         }
-        
+
         @keyframes slideUp {
             to { 
                 opacity: 1;
                 transform: translateY(0);
             }
         }
-        
+
         .animate-slide-left {
             animation: slideLeft 0.8s ease forwards;
             opacity: 0;
             transform: translateX(-30px);
         }
-        
+
         @keyframes slideLeft {
             to { 
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-        
+
         .animate-slide-right {
             animation: slideRight 0.8s ease forwards;
             opacity: 0;
             transform: translateX(30px);
         }
-        
+
         @keyframes slideRight {
             to { 
                 opacity: 1;
                 transform: translateX(0);
             }
         }
-        
+
         /* Catalogue Image Styling - CORRIGÉ */
         .catalogue-container {
             margin-top: 25px;
@@ -578,7 +578,7 @@
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             background-color: white;
         }
-        
+
         .catalogue-header {
             background: linear-gradient(135deg, #3182CE, #2C5282);
             color: white !important; /* Texte en blanc */
@@ -588,7 +588,7 @@
             font-size: 1.1rem;
             letter-spacing: 0.5px;
         }
-        
+
         .catalogue-image-container {
             padding: 20px;
             background-color: #f8fafc;
@@ -597,7 +597,7 @@
             align-items: center;
             min-height: 250px;
         }
-        
+
         .catalogue-image {
             max-width: 100%;
             height: auto;
@@ -606,7 +606,7 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border: 1px solid #e2e8f0;
         }
-        
+
         /* Fallback si l'image ne charge pas */
         .image-fallback {
             display: flex;
@@ -617,13 +617,13 @@
             text-align: center;
             color: #64748b;
         }
-        
+
         .image-fallback i {
             font-size: 3rem;
             margin-bottom: 15px;
             color: #94a3b8;
         }
-        
+
         .catalogue-caption {
             background-color: #f1f5f9;
             padding: 12px 15px;
@@ -633,7 +633,7 @@
             border-top: 1px solid #e2e8f0;
             font-weight: 500;
         }
-        
+
         /* Styles de débogage - à retirer après vérification */
         .debug-info {
             position: fixed;
@@ -647,56 +647,56 @@
             z-index: 9999;
             display: none; /* Masquer par défaut */
         }
-        
+
         /* Titres des sections dans les services - CORRECTION */
         .service-item h4,
         .service-item h5,
         .service-item h6 {
             color: var(--primary-color) !important; /* Garde les titres en bleu dans les cartes de service */
         }
-        
+
         /* Titres des cartes de prix - FORCER EN BLANC */
         .price-header h6.mb-0 {
             color: white !important;
             font-weight: 600;
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero-section {
                 padding: 140px 0 100px;
             }
-            
+
             .services-section {
                 padding: 60px 0 40px;
             }
-            
+
             .service-item {
                 padding: 25px 20px;
             }
-            
+
             .catalogue-container {
                 margin-top: 20px;
                 margin-bottom: 15px;
             }
-            
+
             .catalogue-image-container {
                 min-height: 200px;
                 padding: 15px;
             }
         }
-        
+
         @media (max-width: 576px) {
             .promo-badge {
                 font-size: 1rem;
                 padding: 10px 20px;
             }
-            
+
             .btn-promo {
                 padding: 14px 30px;
                 font-size: 0.95rem;
             }
-            
+
             .catalogue-header {
                 padding: 12px 15px;
                 font-size: 1rem;
@@ -759,7 +759,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Services Section -->
     <section class="services-section" id="services">
         <div class="container">
@@ -769,7 +769,7 @@
                     Des solutions complètes et innovantes adaptées à vos besoins spécifiques
                 </p>
             </div>
-            
+
             <div class="row g-4">
                 <!-- Service Reprogrammation de clés -->
                 <div class="col-lg-6">
@@ -780,7 +780,7 @@
                         <span class="service-badge">-35%</span>
                         <h4 class="mb-3">Reprogrammation de clés perdues</h4>
                         <p class="mb-4">Service professionnel pour remplacer vos clés perdues ou défectueuses avec garantie et expertise technique avancée.</p>
-                        
+
                         <!-- Section Catalogue des Clés Disponibles - CORRIGÉ -->
                         <div class="catalogue-container">
                             <div class="catalogue-header">
@@ -794,7 +794,7 @@
                                      id="catalogueImage"
                                      onload="imageLoadedSuccessfully()"
                                      onerror="imageFailedToLoad()">
-                                
+
                                 <!-- Fallback si l'image ne charge pas -->
                                 <div class="image-fallback" id="imageFallback" style="display: none;">
                                     <i class="fas fa-image"></i>
@@ -806,7 +806,7 @@
                                 Notre stock actuel de clés disponibles pour reprogrammation immédiate
                             </div>
                         </div>
-                        
+
                         <!-- Tableau des prix pour la programmation -->
                         <div class="mt-4">
                             <h5 class="mb-4">Tarifs Programmation:</h5>
@@ -869,7 +869,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-4 pt-3 border-top">
                             <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('reprogrammation')">
                                 <i class="fas fa-paper-plane me-2"></i>Demander ce service
@@ -877,7 +877,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Service Clonage de clés -->
                 <div class="col-lg-6">
                     <div class="service-item key-service animate-slide-right">
@@ -887,7 +887,7 @@
                         <span class="service-badge">-35%</span>
                         <h4 class="mb-3">Clonage de clés électroniques</h4>
                         <p class="mb-4">Duplication précise de vos clés électroniques avec équipement de pointe et garantie de fonctionnement optimal.</p>
-                        
+
                         <!-- Tableau des prix pour le clonage -->
                         <div class="mt-4">
                             <h5 class="mb-4">Tarifs Clonage:</h5>
@@ -942,7 +942,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-4">
                             <h6 class="mb-3">Avantages:</h6>
                             <div class="row g-2">
@@ -952,7 +952,7 @@
                                 <div class="col-6"><i class="fas fa-check-circle text-success me-2"></i>Processus rapide</div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-4 pt-3 border-top">
                             <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('clonage')">
                                 <i class="fas fa-paper-plane me-2"></i>Demander ce service
@@ -960,7 +960,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Service Applications Web -->
                 <div class="col-lg-6">
                     <div class="service-item web-service animate-slide-left" style="animation-delay: 0.2s;">
@@ -970,7 +970,7 @@
                         <span class="service-badge web-badge">-35%</span>
                         <h4 class="mb-3">Création d'applications web</h4>
                         <p class="mb-4">Développement d'applications web performantes et modernes adaptées à vos besoins spécifiques avec technologies de pointe.</p>
-                        
+
                         <div class="mb-4">
                             <h6 class="mb-3">Technologies utilisées:</h6>
                             <div class="d-flex flex-wrap gap-2 mb-3">
@@ -985,7 +985,7 @@
                                 <li>Hébergement et maintenance inclus</li>
                             </ul>
                         </div>
-                        
+
                         <div class="mt-4 pt-3 border-top">
                             <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('application')">
                                 <i class="fas fa-paper-plane me-2"></i>Demander ce service
@@ -993,7 +993,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Service Analyse de données -->
                 <div class="col-lg-6">
                     <div class="service-item data-service animate-slide-right" style="animation-delay: 0.2s;">
@@ -1003,7 +1003,7 @@
                         <span class="service-badge data-badge">-35%</span>
                         <h4 class="mb-3">Consultance en Analyse de Données</h4>
                         <p class="mb-4">Expertise avancée pour transformer vos données en insights actionnables et stratégies business rentables.</p>
-                        
+
                         <div class="mb-4">
                             <h6 class="mb-3">Services inclus:</h6>
                             <div class="row g-2 mb-3">
@@ -1013,7 +1013,7 @@
                                 <div class="col-6"><i class="fas fa-users text-info me-2"></i>Formation équipe</div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-4 pt-3 border-top">
                             <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('consultance')">
                                 <i class="fas fa-paper-plane me-2"></i>Demander ce service
@@ -1021,7 +1021,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Service Excel intégré -->
                 <div class="col-12">
                     <div class="service-item excel-service animate-fade-in" style="animation-delay: 0.4s;">
@@ -1031,7 +1031,7 @@
                         <span class="service-badge excel-badge">Nouveau</span>
                         <h4 class="mb-3">Formation Excel en ligne - 2021</h4>
                         <p class="mb-4">Formation complète Excel 2021 pour maîtriser les fonctionnalités avancées et optimiser votre productivité en seulement 3 semaines.</p>
-                        
+
                         <div class="row mb-4">
                             <div class="col-lg-8">
                                 <div class="row">
@@ -1096,7 +1096,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="mt-4 pt-3 border-top">
                             <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="setService('excel')">
                                 <i class="fas fa-user-graduate me-2"></i>S'inscrire à la formation
@@ -1107,7 +1107,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Company Info Section -->
     <section id="about">
         <div class="container">
@@ -1140,7 +1140,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1174,13 +1174,13 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/243999075877?text=Bonjour%20AMELTEK%20ENGINEERING,%20je%20suis%20intéressé%20par%20vos%20services" 
        class="whatsapp-float" target="_blank" title="Contactez-nous sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    
+
     <!-- Contact Modal COMPLET -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
@@ -1194,7 +1194,7 @@
                         <i class="fas fa-info-circle me-2"></i>
                         Toutes les demandes seront traitées via WhatsApp. Vous serez redirigé vers WhatsApp pour finaliser votre demande.
                     </div>
-                    
+
                     <form id="whatsappForm">
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -1206,7 +1206,7 @@
                                 <input type="tel" class="form-control" id="phone" required>
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="service" class="form-label required">Service demandé</label>
                             <select class="form-select" id="service" required>
@@ -1218,7 +1218,7 @@
                                 <option value="excel">Formation Excel en ligne</option>
                             </select>
                         </div>
-                        
+
                         <!-- Champs pour les services de clés -->
                         <div id="keyFields">
                             <div class="mb-3">
@@ -1231,7 +1231,7 @@
                                     <option value="smart-key" data-programmation-price="130" data-clonage-price="100">Type smart key (main libre)</option>
                                 </select>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-4 mb-3">
                                     <label for="carBrand" class="form-label required">Marque du véhicule</label>
@@ -1253,7 +1253,7 @@
                                     <small class="form-text text-muted">Années acceptées: 2009 à 2024</small>
                                 </div>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <label for="chassis" class="form-label required">Numéro de châssis (VIN)</label>
@@ -1270,12 +1270,12 @@
                                     </select>
                                 </div>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label class="form-label">Service demandé</label>
                                 <div id="serviceType" class="form-control bg-light">Programmation</div>
                             </div>
-                            
+
                             <!-- Afficher le prix calculé -->
                             <div class="mb-3" id="priceDisplay" style="display: none;">
                                 <label class="form-label">Prix estimé</label>
@@ -1284,7 +1284,7 @@
                                 </div>
                                 <small class="form-text text-muted" id="priceNote">Prix promotionnel avec -35%</small>
                             </div>
-                            
+
                             <!-- Boîte d'information pour vérifier le VIN -->
                             <div class="vin-info-box mb-4">
                                 <h6 class="mb-2"><i class="fas fa-info-circle text-info me-2"></i>Vérification des informations du véhicule</h6>
@@ -1297,12 +1297,12 @@
                                 <small class="text-muted mt-2 d-block">Entrez votre VIN sur ce site pour obtenir les détails précis de votre véhicule.</small>
                             </div>
                         </div>
-                        
+
                         <!-- Champs pour la formation Excel -->
                         <div id="excelFields">
                             <div class="excel-training-section">
                                 <h4 class="mb-3 text-center">Détails de la Formation Excel</h4>
-                                
+
                                 <div class="row mb-4">
                                     <div class="col-md-6">
                                         <div class="d-flex align-items-center mb-3">
@@ -1337,7 +1337,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="pricing-section text-center mb-4">
                                     <h4 class="mb-3">Options de Paiement</h4>
                                     <div class="row justify-content-center">
@@ -1370,7 +1370,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label class="form-label required">Option de paiement</label>
                                     <div>
@@ -1394,7 +1394,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="mb-3">
                                     <label for="excelSchedule" class="form-label">Préférence d'horaire</label>
                                     <select class="form-select" id="excelSchedule">
@@ -1409,7 +1409,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Champs pour le développement web -->
                         <div id="webFields">
                             <div class="mb-3">
@@ -1420,13 +1420,13 @@
                                     <option value="application">Application web</option>
                                 </select>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="projectDescription" class="form-label">Description du projet</label>
                                 <textarea class="form-control" id="projectDescription" rows="3" placeholder="Décrivez votre projet en détail..."></textarea>
                             </div>
                         </div>
-                        
+
                         <!-- Champs pour l'analyse de données -->
                         <div id="dataFields">
                             <div class="mb-3">
@@ -1438,13 +1438,13 @@
                                     <option value="autre">Autre type d'analyse</option>
                                 </select>
                             </div>
-                            
+
                             <div class="mb-3">
                                 <label for="dataVolume" class="form-label">Volume de données</label>
                                 <input type="text" class="form-control" id="dataVolume" placeholder="Ex: 1000 lignes, fichiers Excel...">
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="message" class="form-label">Message supplémentaire</label>
                             <textarea class="form-control" id="message" rows="3" placeholder="Décrivez brièvement votre besoin..."></textarea>
@@ -1469,35 +1469,35 @@
             console.log('Image chargée avec succès');
             document.getElementById('imageFallback').style.display = 'none';
             document.getElementById('catalogueImage').style.display = 'block';
-            
+
             // Afficher l'info de débogage
             document.getElementById('debugInfo').textContent = 'Debug: Image chargée avec succès';
             document.getElementById('debugInfo').style.display = 'block';
-            
+
             // Masquer après 5 secondes
             setTimeout(() => {
                 document.getElementById('debugInfo').style.display = 'none';
             }, 5000);
         }
-        
+
         function imageFailedToLoad() {
             console.error('Échec du chargement de l\'image');
             document.getElementById('catalogueImage').style.display = 'none';
             document.getElementById('imageFallback').style.display = 'flex';
-            
+
             // Afficher l'info de débogage
             document.getElementById('debugInfo').textContent = 'Debug: Échec du chargement de l\'image. Vérifiez le chemin.';
             document.getElementById('debugInfo').style.display = 'block';
-            
+
             // Masquer après 10 secondes
             setTimeout(() => {
                 document.getElementById('debugInfo').style.display = 'none';
             }, 10000);
-            
+
             // Essayer d'autres chemins possibles
             tryAlternativePaths();
         }
-        
+
         function tryAlternativePaths() {
             const alternativePaths = [
                 './Catalogues.png',
@@ -1506,15 +1506,15 @@
                 'assets/Catalogues.png',
                 'catalogue/Catalogues.png'
             ];
-            
+
             const image = document.getElementById('catalogueImage');
             let currentIndex = 0;
-            
+
             function tryNextPath() {
                 if (currentIndex < alternativePaths.length) {
                     image.src = alternativePaths[currentIndex];
                     currentIndex++;
-                    
+
                     // Réessayer après 2 secondes si l'image échoue
                     setTimeout(() => {
                         if (!image.complete || image.naturalHeight === 0) {
@@ -1523,7 +1523,7 @@
                     }, 2000);
                 }
             }
-            
+
             tryNextPath();
         }
 
@@ -1555,21 +1555,21 @@
         // Fonction pour définir automatiquement le service dans le formulaire
         function setService(serviceType) {
             document.getElementById('service').value = serviceType;
-            
+
             // Déclencher l'événement change pour afficher les champs appropriés
             const event = new Event('change');
             document.getElementById('service').dispatchEvent(event);
-            
+
             // Ouvrir le modal
             const modal = new bootstrap.Modal(document.getElementById('contactModal'));
             modal.show();
         }
-        
+
         // Fonction pour valider l'année de fabrication
         function validateYear(input) {
             const year = parseInt(input.value);
             const currentYear = new Date().getFullYear();
-            
+
             if (year < 2009 || year > currentYear) {
                 input.setCustomValidity(`L'année doit être entre 2009 et ${currentYear}`);
                 input.classList.add('is-invalid');
@@ -1580,7 +1580,7 @@
                 input.classList.add('is-valid');
             }
         }
-        
+
         // Fonction pour calculer et afficher le prix
         function calculateAndDisplayPrice() {
             const keyTypeSelect = document.getElementById('keyType');
@@ -1589,21 +1589,21 @@
             const priceDisplay = document.getElementById('priceDisplay');
             const calculatedPriceElement = document.getElementById('calculatedPrice');
             const priceNoteElement = document.getElementById('priceNote');
-            
+
             if (!keyTypeSelect || !keyNumberSelect || !serviceTypeElement) return;
-            
+
             const keyType = keyTypeSelect.value;
             const keyNumber = parseInt(keyNumberSelect.value);
             const serviceType = serviceTypeElement.textContent.toLowerCase();
-            
+
             if (!keyType) {
                 priceDisplay.style.display = 'none';
                 return;
             }
-            
+
             let price = 0;
             let priceNote = '';
-            
+
             if (serviceType === 'programmation') {
                 if (keyNumber === 1) {
                     price = priceCatalog.programmation[keyType];
@@ -1613,10 +1613,11 @@
                     priceNote = 'Prix normal (2 clés)';
                 }
             } else if (serviceType === 'clonage') {
-                price = priceCatalog.clonage[keyType];
+                // ✅ Clonage : prix total = prix 1 clé × nombre de clés
+                price = (priceCatalog.clonage[keyType] || 0) * keyNumber;
                 priceNote = 'Prix standard';
             }
-            
+
             // Afficher le prix
             if (price > 0) {
                 calculatedPriceElement.textContent = `${price}$ pour ${keyNumber} clé${keyNumber > 1 ? 's' : ''}`;
@@ -1625,7 +1626,7 @@
             } else {
                 priceDisplay.style.display = 'none';
             }
-            
+
             return price;
         }
 
@@ -1642,7 +1643,7 @@
             const yearInput = document.getElementById('manufactureYear');
             const keyTypeSelect = document.getElementById('keyType');
             const keyNumberSelect = document.getElementById('keyNumber');
-            
+
             // Vérifier l'image au chargement
             const catalogueImage = document.getElementById('catalogueImage');
             if (catalogueImage.complete) {
@@ -1652,23 +1653,23 @@
                     imageFailedToLoad();
                 }
             }
-            
+
             // Valider l'année de fabrication lors de la saisie
             if (yearInput) {
                 yearInput.addEventListener('input', function() {
                     validateYear(this);
                 });
             }
-            
+
             // Calculer le prix lorsque les champs changent
             if (keyTypeSelect) {
                 keyTypeSelect.addEventListener('change', calculateAndDisplayPrice);
             }
-            
+
             if (keyNumberSelect) {
                 keyNumberSelect.addEventListener('change', calculateAndDisplayPrice);
             }
-            
+
             // Navbar scroll effect
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 50) {
@@ -1677,17 +1678,17 @@
                     navbar.classList.remove('scrolled');
                 }
             });
-            
+
             // Afficher/masquer les champs selon le service sélectionné
             serviceSelect.addEventListener('change', function() {
                 const selectedService = this.value;
-                
+
                 // Masquer tous les champs spécifiques d'abord
                 keyFields.style.display = 'none';
                 excelFields.style.display = 'none';
                 webFields.style.display = 'none';
                 dataFields.style.display = 'none';
-                
+
                 // Rendre tous les champs non obligatoires d'abord
                 document.getElementById('keyType').required = false;
                 document.getElementById('carBrand').required = false;
@@ -1697,7 +1698,7 @@
                 document.getElementById('manufactureYear').required = false;
                 document.getElementById('projectType').required = false;
                 document.getElementById('dataType').required = false;
-                
+
                 // Services de clés
                 if (selectedService === 'reprogrammation' || selectedService === 'clonage') {
                     keyFields.style.display = 'block';
@@ -1708,14 +1709,14 @@
                     document.getElementById('chassis').required = true;
                     document.getElementById('keyNumber').required = true;
                     document.getElementById('manufactureYear').required = true;
-                    
+
                     // Mettre à jour le type de service affiché
                     if (selectedService === 'reprogrammation') {
                         serviceType.textContent = 'Programmation';
                     } else {
                         serviceType.textContent = 'Clonage';
                     }
-                    
+
                     // Calculer et afficher le prix
                     setTimeout(calculateAndDisplayPrice, 100);
                 } 
@@ -1738,7 +1739,7 @@
                     document.getElementById('dataType').required = true;
                 }
             });
-            
+
             // Envoyer le formulaire via WhatsApp
             sendWhatsAppBtn.addEventListener('click', function() {
                 // Validation des champs requis
@@ -1747,11 +1748,11 @@
                     if (yearInput && yearInput.style.display !== 'none') {
                         validateYear(yearInput);
                     }
-                    
+
                     whatsappForm.reportValidity();
                     return;
                 }
-                
+
                 const name = document.getElementById('name').value;
                 const phone = document.getElementById('phone').value;
                 const service = document.getElementById('service').value;
@@ -1763,14 +1764,14 @@
                 const manufactureYear = document.getElementById('manufactureYear') ? document.getElementById('manufactureYear').value : '';
                 const keyNumber = document.getElementById('keyNumber') ? document.getElementById('keyNumber').value : '';
                 const message = document.getElementById('message').value;
-                
+
                 // Construction du message WhatsApp
                 let whatsappMessage = `Bonjour AMELTEK ENGINEERING,%0A%0A`;
                 whatsappMessage += `Je suis intéressé par vos services.%0A%0A`;
                 whatsappMessage += `*Nom:* ${name}%0A`;
                 whatsappMessage += `*Téléphone:* ${phone}%0A`;
                 whatsappMessage += `*Service demandé:* ${serviceSelect.options[serviceSelect.selectedIndex].text}%0A`;
-                
+
                 // Informations pour les services de clés
                 if (service === 'reprogrammation' || service === 'clonage') {
                     whatsappMessage += `*Type de clé:* ${keyTypeText}%0A`;
@@ -1780,7 +1781,7 @@
                     whatsappMessage += `*Année de fabrication:* ${manufactureYear}%0A`;
                     whatsappMessage += `*Numéro de châssis (VIN):* ${chassis}%0A`;
                     whatsappMessage += `*Type de service:* ${serviceType.textContent}%0A`;
-                    
+
                     // Ajouter le prix calculé au message
                     const calculatedPrice = calculateAndDisplayPrice();
                     if (calculatedPrice > 0) {
@@ -1810,7 +1811,7 @@
                         }
                         whatsappMessage += `*Option de paiement:* ${paymentText}%0A`;
                     }
-                    
+
                     const schedule = document.getElementById('excelSchedule').value;
                     if (schedule) {
                         whatsappMessage += `*Préférence d'horaire:* ${document.getElementById('excelSchedule').options[document.getElementById('excelSchedule').selectedIndex].text}%0A`;
@@ -1822,7 +1823,7 @@
                     if (projectType) {
                         whatsappMessage += `*Type de projet:* ${document.getElementById('projectType').options[document.getElementById('projectType').selectedIndex].text}%0A`;
                     }
-                    
+
                     const projectDescription = document.getElementById('projectDescription').value;
                     if (projectDescription) {
                         whatsappMessage += `*Description du projet:* ${projectDescription}%0A`;
@@ -1834,72 +1835,72 @@
                     if (dataType) {
                         whatsappMessage += `*Type d'analyse:* ${document.getElementById('dataType').options[document.getElementById('dataType').selectedIndex].text}%0A`;
                     }
-                    
+
                     const dataVolume = document.getElementById('dataVolume').value;
                     if (dataVolume) {
                         whatsappMessage += `*Volume de données:* ${dataVolume}%0A`;
                     }
                 }
-                
+
                 if (message) {
                     whatsappMessage += `*Message:* ${message}%0A`;
                 }
-                
+
                 // Ajouter la mention de promotion pour les services de clés
                 if (service === 'reprogrammation' || service === 'clonage') {
                     whatsappMessage += `%0AJe souhaite bénéficier de l'offre promotionnelle de -35%.`;
                 }
-                
+
                 // Ouvrir WhatsApp avec le message pré-rempli
                 const whatsappURL = `https://wa.me/243999075877?text=${whatsappMessage}`;
                 window.open(whatsappURL, '_blank');
-                
+
                 // Fermer le modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
                 modal.hide();
-                
+
                 // Réinitialiser le formulaire
                 whatsappForm.reset();
                 keyFields.style.display = 'none';
                 excelFields.style.display = 'none';
                 webFields.style.display = 'none';
                 dataFields.style.display = 'none';
-                
+
                 // Réinitialiser les classes de validation
                 if (yearInput) {
                     yearInput.classList.remove('is-valid', 'is-invalid');
                 }
-                
+
                 // Masquer l'affichage du prix
                 const priceDisplay = document.getElementById('priceDisplay');
                 if (priceDisplay) {
                     priceDisplay.style.display = 'none';
                 }
             });
-            
+
             // Animation des éléments au défilement
             const animateElements = document.querySelectorAll('.animate-fade-in, .animate-slide-up, .animate-slide-left, .animate-slide-right');
-            
+
             function checkScroll() {
                 animateElements.forEach(element => {
                     const position = element.getBoundingClientRect().top;
                     const screenPosition = window.innerHeight / 1.2;
-                    
+
                     if (position < screenPosition) {
                         element.style.animationPlayState = 'running';
                     }
                 });
             }
-            
+
             window.addEventListener('scroll', checkScroll);
             checkScroll();
-            
+
             // Masquer initialement les champs spécifiques
             keyFields.style.display = 'none';
             excelFields.style.display = 'none';
             webFields.style.display = 'none';
             dataFields.style.display = 'none';
-            
+
             // Initialiser l'année maximum à l'année courante
             if (yearInput) {
                 const currentYear = new Date().getFullYear();
