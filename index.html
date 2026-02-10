@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AMELTEK ENGINEERING - Services Professionnels</title>
+    <title>AMELTEK ENGINEERING - Solutions Technologiques d'Excellence</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1A365D;
@@ -21,14 +21,15 @@
             --success-color: #38A169;
             --warning-color: #D69E2E;
             --info-color: #3182CE;
-            --gradient-primary: linear-gradient(135deg, #1A365D, #2C5282);
-            --gradient-accent: linear-gradient(135deg, #ED8936, #DD6B20);
-            --gradient-success: linear-gradient(135deg, #38A169, #2F855A);
-            --gradient-warning: linear-gradient(135deg, #D69E2E, #B7791F);
-            --gradient-info: linear-gradient(135deg, #4299E1, #3182CE);
+            --gradient-primary: linear-gradient(135deg, #1A365D 0%, #2C5282 50%, #4299E1 100%);
+            --gradient-accent: linear-gradient(135deg, #ED8936 0%, #DD6B20 100%);
+            --gradient-success: linear-gradient(135deg, #38A169 0%, #2F855A 100%);
+            --gradient-warning: linear-gradient(135deg, #D69E2E 0%, #B7791F 100%);
+            --gradient-info: linear-gradient(135deg, #4299E1 0%, #3182CE 100%);
             --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.12);
-            --border-radius: 12px;
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
 
         * {
@@ -39,92 +40,127 @@
 
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: var(--light-color);
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
             color: var(--text-color);
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(66, 153, 225, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(237, 137, 54, 0.03) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(26, 54, 93, 0.02) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: -0.5px;
         }
 
         .navbar {
-            background-color: rgba(26, 54, 93, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 18px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            background: rgba(26, 54, 93, 0.95);
+            backdrop-filter: blur(15px) saturate(180%);
+            padding: 20px 0;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .navbar.scrolled {
-            padding: 12px 0;
-            background-color: rgba(26, 54, 93, 0.98);
+            padding: 15px 0;
+            background: rgba(26, 54, 93, 0.98);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
         }
 
         .logo {
-            font-weight: 800;
-            font-size: 1.9rem;
+            font-weight: 900;
+            font-size: 2.1rem;
             color: white;
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             display: flex;
             flex-direction: column;
             line-height: 1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo-main {
-            font-size: 1.9rem;
+            font-size: 2.1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #ED8936 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .logo-tagline {
-            font-size: 0.75rem;
-            letter-spacing: 2px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
             color: var(--accent-color);
-            font-weight: 500;
-            margin-top: 2px;
+            font-weight: 600;
+            margin-top: 4px;
+            opacity: 0.9;
         }
 
         .nav-link {
-            font-weight: 500;
-            margin: 0 8px;
+            font-weight: 600;
+            margin: 0 10px;
             position: relative;
-            transition: all 0.3s ease;
-            color: rgba(255, 255, 255, 0.9);
+            transition: var(--transition);
+            color: rgba(255, 255, 255, 0.95);
+            padding: 8px 0 !important;
+            font-size: 1.05rem;
         }
 
-        .nav-link::after {
+        .nav-link::before {
             content: '';
             position: absolute;
             width: 0;
-            height: 3px;
+            height: 2px;
             bottom: 0;
-            left: 0;
-            background-color: var(--accent-color);
-            transition: width 0.3s ease;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-accent);
+            transition: width 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border-radius: 2px;
         }
 
         .nav-link:hover, .nav-link.active {
             color: white;
+            transform: translateY(-2px);
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            width: 80%;
         }
 
         /* Hero Section Redesigned */
         .hero-section {
             background: var(--gradient-primary);
             color: white;
-            padding: 160px 0 120px;
+            padding: 180px 0 140px;
             position: relative;
             overflow: hidden;
             text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
         }
 
         .hero-section::before {
@@ -134,14 +170,22 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(237, 137, 54, 0.15) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(66, 153, 225, 0.1) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(237, 137, 54, 0.2) 0%, transparent 40%),
+                radial-gradient(circle at 80% 10%, rgba(66, 153, 225, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            animation: gradientFloat 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(-50px, 50px) scale(1.1); }
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
         }
 
@@ -149,117 +193,169 @@
             display: inline-block;
             background: var(--gradient-accent);
             color: white;
-            padding: 12px 30px;
+            padding: 14px 35px;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(237, 137, 54, 0.3);
-            letter-spacing: 1px;
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 30px rgba(237, 137, 54, 0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            animation: pulse 2s infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotate(0deg); box-shadow: 0 15px 30px rgba(237, 137, 54, 0.4); }
+            50% { transform: scale(1.05) rotate(1deg); box-shadow: 0 20px 40px rgba(237, 137, 54, 0.6); }
+            100% { transform: scale(1) rotate(0deg); box-shadow: 0 15px 30px rgba(237, 137, 54, 0.4); }
         }
 
         .section-title {
             position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             text-align: center;
-            padding-bottom: 20px;
+            padding-bottom: 25px;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 4px;
+            width: 120px;
+            height: 5px;
             background: var(--gradient-accent);
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 2px;
+            border-radius: 5px;
+            animation: lineWidth 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes lineWidth {
+            0% { width: 100px; }
+            100% { width: 140px; }
         }
 
         /* Services Section */
         .services-section {
-            padding: 100px 0 80px;
+            padding: 120px 0 100px;
+            position: relative;
         }
 
         .service-item {
-            background: white;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+            backdrop-filter: blur(10px);
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            padding: 35px 30px;
-            margin-bottom: 30px;
-            transition: all 0.4s ease;
+            padding: 40px 35px;
+            margin-bottom: 35px;
+            transition: var(--transition);
             height: 100%;
             position: relative;
             overflow: hidden;
-            border-top: 5px solid var(--primary-color);
+            border-left: 5px solid var(--primary-color);
+            border-right: 1px solid rgba(255, 255, 255, 0.5);
+            border-top: 1px solid rgba(255, 255, 255, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .service-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 30%, rgba(255, 255, 255, 0.3) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .service-item > * {
+            position: relative;
+            z-index: 2;
         }
 
         .service-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-15px) scale(1.02);
             box-shadow: var(--shadow-hover);
         }
 
         .service-item.key-service {
-            border-top-color: var(--primary-color);
+            border-left-color: var(--primary-color);
         }
 
         .service-item.web-service {
-            border-top-color: var(--info-color);
+            border-left-color: var(--info-color);
         }
 
         .service-item.data-service {
-            border-top-color: var(--success-color);
+            border-left-color: var(--success-color);
         }
 
         .service-item.excel-service {
-            border-top-color: var(--warning-color);
+            border-left-color: var(--warning-color);
         }
 
         .service-icon {
-            font-size: 3.2rem;
-            margin-bottom: 25px;
+            font-size: 3.5rem;
+            margin-bottom: 30px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.1), transparent);
+            width: 90px;
+            height: 90px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.1) 0%, transparent 100%);
             color: var(--primary-color);
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-item:hover .service-icon {
+            transform: rotate(10deg) scale(1.1);
         }
 
         .service-icon.key-icon {
-            background: linear-gradient(135deg, rgba(26, 54, 93, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.15) 0%, rgba(26, 54, 93, 0.05) 100%);
             color: var(--primary-color);
         }
 
         .service-icon.web-icon {
-            background: linear-gradient(135deg, rgba(66, 153, 225, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(66, 153, 225, 0.15) 0%, rgba(66, 153, 225, 0.05) 100%);
             color: var(--info-color);
         }
 
         .service-icon.data-icon {
-            background: linear-gradient(135deg, rgba(56, 161, 105, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(56, 161, 105, 0.15) 0%, rgba(56, 161, 105, 0.05) 100%);
             color: var(--success-color);
         }
 
         .service-icon.excel-icon {
-            background: linear-gradient(135deg, rgba(214, 158, 46, 0.1), transparent);
+            background: linear-gradient(135deg, rgba(214, 158, 46, 0.15) 0%, rgba(214, 158, 46, 0.05) 100%);
             color: var(--warning-color);
         }
 
         .service-badge {
             position: absolute;
-            top: 25px;
-            right: 25px;
+            top: 30px;
+            right: 30px;
             background: var(--gradient-accent);
             color: white;
-            padding: 8px 18px;
+            padding: 10px 22px;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 20px rgba(237, 137, 54, 0.3);
+            z-index: 3;
+            animation: badgeFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
         }
 
         .excel-badge {
@@ -271,89 +367,142 @@
         }
 
         .data-badge {
-            background: linear-gradient(135deg, #6F42C1, #5A32A3);
+            background: linear-gradient(135deg, #6F42C1 0%, #5A32A3 100%);
         }
 
         .btn-promo {
             background: var(--gradient-accent);
             color: white;
-            padding: 16px 40px;
-            font-weight: 700;
+            padding: 18px 45px;
+            font-weight: 800;
             border: none;
             border-radius: 50px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(237, 137, 54, 0.25);
-            letter-spacing: 0.5px;
+            transition: var(--transition);
+            box-shadow: 0 15px 30px rgba(237, 137, 54, 0.3);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-promo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .btn-promo:hover::before {
+            left: 100%;
         }
 
         .btn-promo:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(237, 137, 54, 0.4);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(237, 137, 54, 0.5);
             color: white;
         }
 
-        /* Price Cards - TITRES CORRIGÉS EN BLANC */
+        /* Price Cards - PRIX NON BARRÉS */
         .price-card {
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid #E2E8F0;
+            transition: var(--transition);
+            border: 2px solid #E2E8F0;
             background: white;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
         }
 
         .price-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px) scale(1.03);
             box-shadow: var(--shadow-hover);
+            border-color: var(--accent-color);
         }
 
         .price-header {
             background: var(--gradient-primary);
-            color: white !important; /* Force le texte en blanc */
-            padding: 15px;
+            color: white !important;
+            padding: 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
         }
 
         .price-header h6 {
-            color: white !important; /* Force les titres en blanc */
-            font-weight: 600;
+            color: white !important;
+            font-weight: 700;
             margin: 0;
+            position: relative;
+            z-index: 1;
         }
 
         .price-body {
-            padding: 20px;
+            padding: 25px;
             text-align: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
+        /* Suppression du texte barré pour les prix */
         .price-amount {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin: 10px 0;
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-color);
+            margin: 15px 0;
+            /* Suppression de text-decoration: line-through; */
         }
 
         .price-promo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 2.5rem;
+            font-weight: 900;
             color: var(--accent-color);
-            margin: 10px 0;
+            margin: 15px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .price-note {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: #718096;
-            margin-top: 10px;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: rgba(56, 161, 105, 0.1);
+            border-radius: 20px;
+            display: inline-block;
         }
 
-        /* Company Info */
+        /* Company Info Section plus concise */
         .company-info {
             background: var(--gradient-primary);
             color: white;
             padding: 80px 0;
-            border-radius: var(--border-radius);
+            border-radius: 30px;
             margin: 80px 0;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 30px 60px rgba(26, 54, 93, 0.3);
         }
 
         .company-info::before {
@@ -363,9 +512,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            background-position: center;
+            background: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.05" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>'),
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(237, 137, 54, 0.1) 0%, transparent 50%);
+            background-size: cover, auto, auto;
+            animation: wave 20s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateY(0) translateX(0); }
+            100% { transform: translateY(-50px) translateX(50px); }
         }
 
         .company-content {
@@ -375,6 +532,7 @@
 
         .company-content .section-title {
             color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .company-content .section-title::after {
@@ -383,95 +541,147 @@
 
         /* Footer */
         .footer {
-            background-color: var(--dark-color);
+            background: linear-gradient(135deg, #1A202C 0%, #2D3748 100%);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 40px;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--gradient-accent);
         }
 
         .social-icons a {
             color: white;
-            font-size: 1.3rem;
-            margin-right: 12px;
-            transition: all 0.3s ease;
+            font-size: 1.4rem;
+            margin-right: 15px;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .social-icons a:hover {
             color: var(--accent-color);
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-3px);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%);
+            transform: translateY(-5px) rotate(10deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         /* Form Elements */
         .form-label.required::after {
             content: " *";
             color: var(--accent-color);
+            font-weight: bold;
         }
 
         .whatsapp-float {
             position: fixed;
-            width: 65px;
-            height: 65px;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(135deg, #25d366, #128C7E);
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            background: linear-gradient(135deg, #25d366 0%, #128C7E 100%);
             color: white;
             border-radius: 50%;
             text-align: center;
-            font-size: 32px;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            z-index: 100;
+            font-size: 36px;
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            animation: whatsappPulse 2s infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0% { box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 20px 45px rgba(37, 211, 102, 0.8); }
+            100% { box-shadow: 0 15px 35px rgba(37, 211, 102, 0.5); }
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
+            transform: scale(1.15) rotate(15deg);
+            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.7);
+            animation: none;
         }
 
         /* Modal */
         .modal-content {
-            border-radius: var(--border-radius);
+            border-radius: 20px;
             overflow: hidden;
             border: none;
-            box-shadow: var(--shadow-hover);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.25);
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal.show .modal-content {
+            transform: scale(1);
         }
 
         .modal-header {
             background: var(--gradient-primary);
             color: white;
             border-bottom: none;
-            padding: 25px 30px;
+            padding: 30px 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
         }
 
         .modal-title {
-            font-weight: 700;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
 
         .btn-close {
             filter: invert(1);
             opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .btn-close:hover {
+            transform: rotate(90deg);
+            opacity: 1;
         }
 
         .form-control, .form-select {
-            padding: 14px 18px;
-            border-radius: 8px;
-            border: 1px solid #E2E8F0;
-            transition: all 0.3s ease;
+            padding: 16px 20px;
+            border-radius: 12px;
+            border: 2px solid #E2E8F0;
+            transition: var(--transition);
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            font-size: 1.05rem;
         }
 
         .form-control:focus, .form-select:focus {
             border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.25rem rgba(237, 137, 54, 0.25);
+            box-shadow: 0 0 0 0.3rem rgba(237, 137, 54, 0.25);
+            transform: translateY(-2px);
         }
 
         .form-control:invalid, .form-select:invalid {
@@ -483,188 +693,185 @@
         }
 
         .vin-info-box {
-            background-color: #f7fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 10px;
-            font-size: 0.9rem;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .vin-info-box a {
             color: var(--accent-color);
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
+            transition: var(--transition);
         }
 
         .vin-info-box a:hover {
+            color: var(--primary-color);
             text-decoration: underline;
         }
 
-        /* Champs spécifiques au formulaire */
-        #keyFields, #excelFields, #webFields, #dataFields {
-            display: none;
+        /* Catalogue Image Styling */
+        .catalogue-container {
+            margin-top: 30px;
+            margin-bottom: 25px;
+            border: 3px solid #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            background: white;
+            transition: var(--transition);
         }
 
-        .excel-training-section {
-            background: linear-gradient(135deg, rgba(56, 161, 105, 0.05), transparent);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 20px;
-            border-left: 4px solid var(--success-color);
-        }
-
-        .form-check-input:checked {
-            background-color: var(--accent-color);
+        .catalogue-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
             border-color: var(--accent-color);
         }
 
-        /* Animations */
-        .animate-fade-in {
-            animation: fadeIn 1s ease forwards;
-            opacity: 0;
-        }
-
-        @keyframes fadeIn {
-            to { opacity: 1; }
-        }
-
-        .animate-slide-up {
-            animation: slideUp 0.8s ease forwards;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        @keyframes slideUp {
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-slide-left {
-            animation: slideLeft 0.8s ease forwards;
-            opacity: 0;
-            transform: translateX(-30px);
-        }
-
-        @keyframes slideLeft {
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .animate-slide-right {
-            animation: slideRight 0.8s ease forwards;
-            opacity: 0;
-            transform: translateX(30px);
-        }
-
-        @keyframes slideRight {
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Catalogue Image Styling - CORRIGÉ */
-        .catalogue-container {
-            margin-top: 25px;
-            margin-bottom: 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            background-color: white;
-        }
-
         .catalogue-header {
-            background: linear-gradient(135deg, #3182CE, #2C5282);
-            color: white !important; /* Texte en blanc */
-            padding: 15px 20px;
+            background: linear-gradient(135deg, #3182CE 0%, #2C5282 100%);
+            color: white !important;
+            padding: 20px;
             text-align: center;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .catalogue-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
         }
 
         .catalogue-image-container {
-            padding: 20px;
-            background-color: #f8fafc;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 250px;
+            min-height: 300px;
         }
 
         .catalogue-image {
             max-width: 100%;
             height: auto;
             display: block;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 2px solid #e2e8f0;
+            transition: var(--transition);
         }
 
-        /* Fallback si l'image ne charge pas */
+        .catalogue-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
         .image-fallback {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 50px 30px;
             text-align: center;
             color: #64748b;
         }
 
         .image-fallback i {
-            font-size: 3rem;
-            margin-bottom: 15px;
+            font-size: 4rem;
+            margin-bottom: 20px;
             color: #94a3b8;
+            animation: fallbackIcon 2s ease-in-out infinite;
+        }
+
+        @keyframes fallbackIcon {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(10deg); }
         }
 
         .catalogue-caption {
-            background-color: #f1f5f9;
-            padding: 12px 15px;
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+            padding: 15px 20px;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #475569;
-            border-top: 1px solid #e2e8f0;
-            font-weight: 500;
-        }
-
-        /* Styles de débogage - à retirer après vérification */
-        .debug-info {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            z-index: 9999;
-            display: none; /* Masquer par défaut */
-        }
-
-        /* Titres des sections dans les services - CORRECTION */
-        .service-item h4,
-        .service-item h5,
-        .service-item h6 {
-            color: var(--primary-color) !important; /* Garde les titres en bleu dans les cartes de service */
-        }
-
-        /* Titres des cartes de prix - FORCER EN BLANC */
-        .price-header h6.mb-0 {
-            color: white !important;
+            border-top: 2px solid #e2e8f0;
             font-weight: 600;
         }
 
+        /* Animation des cartes de service */
+        .service-item {
+            animation: cardEntrance 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: translateY(50px) scale(0.9);
+        }
+
+        @keyframes cardEntrance {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .service-item:nth-child(1) { animation-delay: 0.1s; }
+        .service-item:nth-child(2) { animation-delay: 0.2s; }
+        .service-item:nth-child(3) { animation-delay: 0.3s; }
+        .service-item:nth-child(4) { animation-delay: 0.4s; }
+        .service-item:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Badges de statut */
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .status-available {
+            background: linear-gradient(135deg, rgba(56, 161, 105, 0.15) 0%, transparent 100%);
+            color: var(--success-color);
+            border: 2px solid rgba(56, 161, 105, 0.3);
+        }
+
+        .status-promo {
+            background: linear-gradient(135deg, rgba(237, 137, 54, 0.15) 0%, transparent 100%);
+            color: var(--accent-color);
+            border: 2px solid rgba(237, 137, 54, 0.3);
+        }
+
         /* Responsive */
+        @media (max-width: 992px) {
+            .hero-section {
+                padding: 160px 0 120px;
+            }
+            
+            .services-section {
+                padding: 80px 0 60px;
+            }
+            
+            .service-item {
+                padding: 30px 25px;
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-section {
                 padding: 140px 0 100px;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
             }
 
             .services-section {
@@ -673,16 +880,27 @@
 
             .service-item {
                 padding: 25px 20px;
+                margin-bottom: 25px;
             }
 
             .catalogue-container {
-                margin-top: 20px;
-                margin-bottom: 15px;
+                margin-top: 25px;
+                margin-bottom: 20px;
             }
 
             .catalogue-image-container {
-                min-height: 200px;
-                padding: 15px;
+                min-height: 250px;
+                padding: 20px;
+            }
+
+            .promo-badge {
+                font-size: 1.1rem;
+                padding: 12px 25px;
+            }
+
+            .company-info {
+                padding: 60px 0;
+                margin: 60px 0;
             }
         }
 
@@ -693,23 +911,129 @@
             }
 
             .btn-promo {
-                padding: 14px 30px;
-                font-size: 0.95rem;
+                padding: 16px 35px;
+                font-size: 1rem;
             }
 
             .catalogue-header {
-                padding: 12px 15px;
-                font-size: 1rem;
+                padding: 15px;
+                font-size: 1.1rem;
             }
+
+            .logo-main {
+                font-size: 1.8rem;
+            }
+
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2.8rem;
+            }
+
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                bottom: 30px;
+                right: 30px;
+                font-size: 32px;
+            }
+
+            .company-info {
+                padding: 50px 0;
+                margin: 50px 0;
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-section {
+                padding: 120px 0 80px;
+            }
+
+            .company-info {
+                padding: 40px 0;
+                margin: 40px 0;
+            }
+
+            .footer {
+                padding: 60px 0 30px;
+            }
+        }
+
+        /* Effet de particules subtil */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Amélioration du focus visible pour l'accessibilité */
+        *:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Smooth scroll offset for fixed navbar */
+        html {
+            scroll-padding-top: 100px;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #DD6B20 100%);
+        }
+
+        /* Section Animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(26, 54, 93, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--accent-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Highlight Text */
+        .highlight {
+            background: linear-gradient(120deg, rgba(237, 137, 54, 0.2) 0%, rgba(237, 137, 54, 0.1) 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <!-- Debug Info (masqué par défaut) -->
-    <div class="debug-info" id="debugInfo">
-        Debug: Image path check
-    </div>
-
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
@@ -742,7 +1066,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" id="home">
+    <section class="hero-section fade-in-section" id="home">
         <div class="container">
             <div class="hero-content">
                 <div class="promo-badge animate-slide-up">OFFRE EXCEPTIONNELLE -35%</div>
@@ -761,7 +1085,7 @@
     </section>
 
     <!-- Services Section -->
-    <section class="services-section" id="services">
+    <section class="services-section fade-in-section" id="services">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">Nos Services Professionnels</h2>
@@ -778,10 +1102,10 @@
                             <i class="fas fa-key"></i>
                         </div>
                         <span class="service-badge">-35%</span>
-                        <h4 class="mb-3">Reproduction de clés perdues ou abimées </h4>
+                        <h4 class="mb-3">Reproduction de clés perdues ou abimées</h4>
                         <p class="mb-4">Service professionnel pour remplacer vos clés perdues ou défectueuses avec garantie et expertise technique avancée.</p>
 
-                        <!-- Section Catalogue des Clés Disponibles - CORRIGÉ -->
+                        <!-- Section Catalogue des Clés Disponibles -->
                         <div class="catalogue-container">
                             <div class="catalogue-header">
                                 <i class="fas fa-clipboard-list me-2"></i>CLÉS DISPONIBLES EN STOCK - AMELTEK
@@ -807,19 +1131,19 @@
                             </div>
                         </div>
 
-                        <!-- Tableau des prix pour la reproduction  -->
+                        <!-- Tableau des prix pour la reproduction -->
                         <div class="mt-4">
-                            <h5 class="mb-4">Tarifs Reproduction cles perdues ou abimées:</h5>
+                            <h5 class="mb-4">Tarifs Reproduction clés perdues ou abimées:</h5>
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="price-card">
                                         <div class="price-header">
-                                            <h6 class="mb-0" style="color: white !important;">Clé simple à lame fixe sans télécommande </h6>
+                                            <h6 class="mb-0" style="color: white !important;">Clé simple à lame fixe sans télécommande</h6>
                                         </div>
                                         <div class="price-body">
                                             <div class="price-promo">80$</div>
                                             <div class="text-muted">1 clé</div>
-                                            <div class="price-amount"><small>130$</small></div>
+                                            <div class="price-amount">130$</div>
                                             <div class="text-muted">2 clés</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
@@ -833,7 +1157,7 @@
                                         <div class="price-body">
                                             <div class="price-promo">95$</div>
                                             <div class="text-muted">1 clé</div>
-                                            <div class="price-amount"><small>180$</small></div>
+                                            <div class="price-amount">180$</div>
                                             <div class="text-muted">2 clés</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
@@ -847,7 +1171,7 @@
                                         <div class="price-body">
                                             <div class="price-promo">100$</div>
                                             <div class="text-muted">1 clé</div>
-                                            <div class="price-amount"><small>170$</small></div>
+                                            <div class="price-amount">170$</div>
                                             <div class="text-muted">2 clés</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
@@ -861,7 +1185,7 @@
                                         <div class="price-body">
                                             <div class="price-promo">130$</div>
                                             <div class="text-muted">1 clé</div>
-                                            <div class="price-amount"><small>200$</small></div>
+                                            <div class="price-amount">200$</div>
                                             <div class="text-muted">2 clés</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
@@ -885,7 +1209,7 @@
                             <i class="fas fa-clone"></i>
                         </div>
                         <span class="service-badge">-35%</span>
-                        <h4 class="mb-3">Doublure de clés </h4>
+                        <h4 class="mb-3">Doublure de clés</h4>
                         <p class="mb-4">Duplication précise de vos clés électroniques avec équipement de pointe et garantie de fonctionnement optimal.</p>
 
                         <!-- Tableau des prix pour le clonage -->
@@ -1108,21 +1432,18 @@
         </div>
     </section>
 
-    <!-- Company Info Section -->
-    <section id="about">
+    <!-- Company Info Section - PLUS CONCIS -->
+    <section class="fade-in-section" id="about">
         <div class="container">
             <div class="company-info">
                 <div class="company-content">
                     <h2 class="section-title text-white mb-4">À propos de AMELTEK ENGINEERING</h2>
-                    <p class="lead mx-auto mb-4" style="max-width: 800px; color: white;">
-                        AMELTEK ENGINEERING est une startup technologique innovante spécialisée dans les solutions 
+                    <p class="lead mx-auto mb-5" style="max-width: 800px; color: white;">
+                        AMELTEK ENGINEERING est une startup technologique spécialisée dans des solutions innovantes 
                         de reprogrammation de clés, développement web, analyse de données et formation Excel. 
+                        Nous fournissons des services de haute qualité avec expertise et accompagnement personnalisé.
                     </p>
-                    <p class="mx-auto mb-5" style="max-width: 800px; color: white;">
-                        Notre équipe d'experts s'engage à fournir des services de haute qualité adaptés à vos besoins 
-                        avec un accompagnement personnalisé et des technologies de pointe.
-                    </p>
-                    <div class="d-flex justify-content-center gap-3">
+                    <div class="d-flex justify-content-center gap-4">
                         <div class="text-center">
                             <div class="display-6 fw-bold" style="color: white;">100%</div>
                             <div style="color: white;">Satisfaction client</div>
@@ -1142,7 +1463,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer fade-in-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 mb-4 mb-lg-0">
@@ -1332,7 +1653,7 @@
                                             <i class="fas fa-laptop fa-2x text-primary me-3"></i>
                                             <div>
                                                 <h5>Modalité</h5>
-                                                <p class="mb-0">En ligne </p>
+                                                <p class="mb-0">En ligne</p>
                                             </div>
                                         </div>
                                     </div>
@@ -1469,30 +1790,12 @@
             console.log('Image chargée avec succès');
             document.getElementById('imageFallback').style.display = 'none';
             document.getElementById('catalogueImage').style.display = 'block';
-
-            // Afficher l'info de débogage
-            document.getElementById('debugInfo').textContent = 'Debug: Image chargée avec succès';
-            document.getElementById('debugInfo').style.display = 'block';
-
-            // Masquer après 5 secondes
-            setTimeout(() => {
-                document.getElementById('debugInfo').style.display = 'none';
-            }, 5000);
         }
 
         function imageFailedToLoad() {
             console.error('Échec du chargement de l\'image');
             document.getElementById('catalogueImage').style.display = 'none';
             document.getElementById('imageFallback').style.display = 'flex';
-
-            // Afficher l'info de débogage
-            document.getElementById('debugInfo').textContent = 'Debug: Échec du chargement de l\'image. Vérifiez le chemin.';
-            document.getElementById('debugInfo').style.display = 'block';
-
-            // Masquer après 10 secondes
-            setTimeout(() => {
-                document.getElementById('debugInfo').style.display = 'none';
-            }, 10000);
 
             // Essayer d'autres chemins possibles
             tryAlternativePaths();
@@ -1653,6 +1956,26 @@
                     imageFailedToLoad();
                 }
             }
+
+            // Animation au défilement
+            const fadeSections = document.querySelectorAll('.fade-in-section');
+            
+            function checkFade() {
+                fadeSections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.85) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+
+            // Initial check
+            checkFade();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkFade);
 
             // Valider l'année de fabrication lors de la saisie
             if (yearInput) {
@@ -1907,10 +2230,42 @@
                 yearInput.max = currentYear;
                 yearInput.setAttribute('placeholder', `Ex: 2015 (2009-${currentYear})`);
             }
+
+            // Ajouter des particules d'arrière-plan
+            function createParticles() {
+                const colors = ['#1A365D', '#4299E1', '#ED8936', '#38A169'];
+                
+                for (let i = 0; i < 15; i++) {
+                    const particle = document.createElement('div');
+                    particle.classList.add('particle');
+                    
+                    const size = Math.random() * 50 + 10;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    
+                    particle.style.width = `${size}px`;
+                    particle.style.height = `${size}px`;
+                    particle.style.background = color;
+                    particle.style.opacity = Math.random() * 0.1 + 0.05;
+                    particle.style.left = `${Math.random() * 100}%`;
+                    particle.style.top = `${Math.random() * 100}%`;
+                    
+                    document.body.appendChild(particle);
+                    
+                    // Animation
+                    particle.animate([
+                        { transform: 'translate(0, 0) rotate(0deg)' },
+                        { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)` }
+                    ], {
+                        duration: Math.random() * 20000 + 10000,
+                        iterations: Infinity,
+                        direction: 'alternate'
+                    });
+                }
+            }
+
+            // Activer les particules
+            createParticles();
         });
     </script>
 </body>
 </html>
-
-
-
