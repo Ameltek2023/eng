@@ -406,7 +406,7 @@
             color: white;
         }
 
-        /* Price Cards - PRIX NON BARRÉS */
+        /* Price Cards */
         .price-card {
             border-radius: 12px;
             overflow: hidden;
@@ -466,13 +466,12 @@
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
-        /* Suppression du texte barré pour les prix */
+        /* Prix non barrés */
         .price-amount {
             font-size: 2.2rem;
             font-weight: 800;
             color: var(--text-color);
             margin: 15px 0;
-            /* Suppression de text-decoration: line-through; */
         }
 
         .price-promo {
@@ -493,7 +492,7 @@
             display: inline-block;
         }
 
-        /* Company Info Section plus concise */
+        /* Company Info Section */
         .company-info {
             background: var(--gradient-primary);
             color: white;
@@ -714,6 +713,25 @@
             text-decoration: underline;
         }
 
+        /* Prix estimé dans le formulaire - CORRIGÉ */
+        #calculatedPrice {
+            background: var(--gradient-success) !important;
+            color: white !important;
+            font-weight: 800;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid rgba(56, 161, 105, 0.3);
+            text-align: center;
+            font-size: 1.3rem;
+            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.2);
+            transition: var(--transition);
+        }
+
+        #calculatedPrice:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(56, 161, 105, 0.3);
+        }
+
         /* Catalogue Image Styling */
         .catalogue-container {
             margin-top: 30px;
@@ -830,29 +848,6 @@
         .service-item:nth-child(4) { animation-delay: 0.4s; }
         .service-item:nth-child(5) { animation-delay: 0.5s; }
 
-        /* Badges de statut */
-        .status-badge {
-            display: inline-block;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .status-available {
-            background: linear-gradient(135deg, rgba(56, 161, 105, 0.15) 0%, transparent 100%);
-            color: var(--success-color);
-            border: 2px solid rgba(56, 161, 105, 0.3);
-        }
-
-        .status-promo {
-            background: linear-gradient(135deg, rgba(237, 137, 54, 0.15) 0%, transparent 100%);
-            color: var(--accent-color);
-            border: 2px solid rgba(237, 137, 54, 0.3);
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             .hero-section {
@@ -960,15 +955,6 @@
             }
         }
 
-        /* Effet de particules subtil */
-        .particle {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            pointer-events: none;
-            z-index: 1;
-        }
-
         /* Amélioration du focus visible pour l'accessibilité */
         *:focus {
             outline: 2px solid var(--accent-color);
@@ -1008,21 +994,6 @@
         .fade-in-section.visible {
             opacity: 1;
             transform: translateY(0);
-        }
-
-        /* Loading Animation */
-        .loading-spinner {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(26, 54, 93, 0.1);
-            border-radius: 50%;
-            border-top-color: var(--accent-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
         }
 
         /* Highlight Text */
@@ -1597,10 +1568,10 @@
                                 <div id="serviceType" class="form-control bg-light">Programmation</div>
                             </div>
 
-                            <!-- Afficher le prix calculé -->
+                            <!-- Afficher le prix calculé - CORRIGÉ -->
                             <div class="mb-3" id="priceDisplay" style="display: none;">
                                 <label class="form-label">Prix estimé</label>
-                                <div class="form-control bg-success text-white fw-bold" id="calculatedPrice">
+                                <div class="form-control" id="calculatedPrice" style="background: var(--gradient-success); color: white; font-weight: bold; padding: 12px; border-radius: 8px;">
                                     Calcul du prix...
                                 </div>
                                 <small class="form-text text-muted" id="priceNote">Prix promotionnel avec -35%</small>
@@ -1884,7 +1855,7 @@
             }
         }
 
-        // Fonction pour calculer et afficher le prix
+        // Fonction pour calculer et afficher le prix - CORRIGÉ
         function calculateAndDisplayPrice() {
             const keyTypeSelect = document.getElementById('keyType');
             const keyNumberSelect = document.getElementById('keyNumber');
@@ -1916,16 +1887,24 @@
                     priceNote = 'Prix normal (2 clés)';
                 }
             } else if (serviceType === 'clonage') {
-                // ✅ Clonage : prix total = prix 1 clé × nombre de clés
+                // Clonage : prix total = prix 1 clé × nombre de clés
                 price = (priceCatalog.clonage[keyType] || 0) * keyNumber;
                 priceNote = 'Prix standard';
             }
 
-            // Afficher le prix
+            // Afficher le prix immédiatement
             if (price > 0) {
                 calculatedPriceElement.textContent = `${price}$ pour ${keyNumber} clé${keyNumber > 1 ? 's' : ''}`;
                 priceNoteElement.textContent = priceNote;
                 priceDisplay.style.display = 'block';
+                
+                // Appliquer le style vert
+                calculatedPriceElement.style.background = 'var(--gradient-success)';
+                calculatedPriceElement.style.color = 'white';
+                calculatedPriceElement.style.fontWeight = 'bold';
+                calculatedPriceElement.style.padding = '12px';
+                calculatedPriceElement.style.borderRadius = '8px';
+                calculatedPriceElement.style.textAlign = 'center';
             } else {
                 priceDisplay.style.display = 'none';
             }
@@ -1984,13 +1963,17 @@
                 });
             }
 
-            // Calculer le prix lorsque les champs changent
+            // Calculer le prix lorsque les champs changent - CORRIGÉ
             if (keyTypeSelect) {
-                keyTypeSelect.addEventListener('change', calculateAndDisplayPrice);
+                keyTypeSelect.addEventListener('change', function() {
+                    calculateAndDisplayPrice();
+                });
             }
 
             if (keyNumberSelect) {
-                keyNumberSelect.addEventListener('change', calculateAndDisplayPrice);
+                keyNumberSelect.addEventListener('change', function() {
+                    calculateAndDisplayPrice();
+                });
             }
 
             // Navbar scroll effect
@@ -2040,7 +2023,7 @@
                         serviceType.textContent = 'Clonage';
                     }
 
-                    // Calculer et afficher le prix
+                    // Calculer et afficher le prix immédiatement
                     setTimeout(calculateAndDisplayPrice, 100);
                 } 
                 // Formation Excel
@@ -2230,41 +2213,6 @@
                 yearInput.max = currentYear;
                 yearInput.setAttribute('placeholder', `Ex: 2015 (2009-${currentYear})`);
             }
-
-            // Ajouter des particules d'arrière-plan
-            function createParticles() {
-                const colors = ['#1A365D', '#4299E1', '#ED8936', '#38A169'];
-                
-                for (let i = 0; i < 15; i++) {
-                    const particle = document.createElement('div');
-                    particle.classList.add('particle');
-                    
-                    const size = Math.random() * 50 + 10;
-                    const color = colors[Math.floor(Math.random() * colors.length)];
-                    
-                    particle.style.width = `${size}px`;
-                    particle.style.height = `${size}px`;
-                    particle.style.background = color;
-                    particle.style.opacity = Math.random() * 0.1 + 0.05;
-                    particle.style.left = `${Math.random() * 100}%`;
-                    particle.style.top = `${Math.random() * 100}%`;
-                    
-                    document.body.appendChild(particle);
-                    
-                    // Animation
-                    particle.animate([
-                        { transform: 'translate(0, 0) rotate(0deg)' },
-                        { transform: `translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(${Math.random() * 360}deg)` }
-                    ], {
-                        duration: Math.random() * 20000 + 10000,
-                        iterations: Infinity,
-                        direction: 'alternate'
-                    });
-                }
-            }
-
-            // Activer les particules
-            createParticles();
         });
     </script>
 </body>
