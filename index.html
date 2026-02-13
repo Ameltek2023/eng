@@ -406,7 +406,7 @@
             color: white;
         }
 
-        /* Price Cards */
+        /* Price Cards - MODIFIÉ POUR AFFICHER LES PRIX BARRÉS */
         .price-card {
             border-radius: 12px;
             overflow: hidden;
@@ -466,7 +466,51 @@
             background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
         }
 
-        /* Prix non barrés */
+        /* Styles pour les prix barrés */
+        .old-price {
+            font-size: 1.3rem;
+            color: #A0AEC0;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            text-decoration-color: #E53E3E;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .current-price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin: 5px 0;
+            line-height: 1.2;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .price-two-keys {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed #E2E8F0;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: #718096;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: rgba(237, 137, 54, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
         .price-amount {
             font-size: 2.2rem;
             font-weight: 800;
@@ -1102,7 +1146,7 @@
                             </div>
                         </div>
 
-                        <!-- Tableau des prix pour la reproduction -->
+                        <!-- Tableau des prix pour la reproduction - MODIFIÉ AVEC PRIX BARRÉS -->
                         <div class="mt-4">
                             <h5 class="mb-4">Tarifs Reproduction clés perdues ou abimées:</h5>
                             <div class="row g-3">
@@ -1112,10 +1156,13 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé simple à lame fixe sans télécommande</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-promo">80$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-amount">130$</div>
-                                            <div class="text-muted">2 clés</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">130$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">80$</div>
+                                            <div class="price-label">1 clé (promo -35%)</div>
+                                            <!-- Prix pour 2 clés -->
+                                            <div class="price-two-keys">2 clés: 130$</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
                                     </div>
@@ -1126,10 +1173,13 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé à lame fixe avec télécommande</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-promo">95$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-amount">180$</div>
-                                            <div class="text-muted">2 clés</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">180$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">95$</div>
+                                            <div class="price-label">1 clé (promo -35%)</div>
+                                            <!-- Prix pour 2 clés -->
+                                            <div class="price-two-keys">2 clés: 180$</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
                                     </div>
@@ -1140,10 +1190,13 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé à Lame Rabattable avec télécommande</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-promo">100$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-amount">170$</div>
-                                            <div class="text-muted">2 clés</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">170$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">100$</div>
+                                            <div class="price-label">1 clé (promo -35%)</div>
+                                            <!-- Prix pour 2 clés -->
+                                            <div class="price-two-keys">2 clés: 170$</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
                                     </div>
@@ -1154,10 +1207,13 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé intelligente avec démarrage par bouton</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-promo">130$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-amount">200$</div>
-                                            <div class="text-muted">2 clés</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">200$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">130$</div>
+                                            <div class="price-label">1 clé (promo -35%)</div>
+                                            <!-- Prix pour 2 clés -->
+                                            <div class="price-two-keys">2 clés: 200$</div>
                                             <div class="price-note">Promotion limitée</div>
                                         </div>
                                     </div>
@@ -1173,7 +1229,7 @@
                     </div>
                 </div>
 
-                <!-- Service Doublure de clés -->
+                <!-- Service Doublure de clés - MODIFIÉ AVEC PRIX BARRÉS -->
                 <div class="col-lg-6">
                     <div class="service-item key-service animate-slide-right">
                         <div class="service-icon key-icon">
@@ -1183,7 +1239,7 @@
                         <h4 class="mb-3">Doublure de clés</h4>
                         <p class="mb-4">Duplication précise de vos clés électroniques avec équipement de pointe et garantie de fonctionnement optimal.</p>
 
-                        <!-- Tableau des prix pour le clonage -->
+                        <!-- Tableau des prix pour le clonage - AVEC PRIX BARRÉS -->
                         <div class="mt-4">
                             <h5 class="mb-4">Tarifs Doublure:</h5>
                             <div class="row g-3">
@@ -1193,9 +1249,12 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé simple à lame fixe sans télécommande</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-amount">65$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-note">Prix standard</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">100$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">65$</div>
+                                            <div class="price-label">1 clé</div>
+                                            <div class="price-note">Promotion -35%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1205,9 +1264,12 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé à lame fixe avec télécommande</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-amount">78$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-note">Prix standard</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">120$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">78$</div>
+                                            <div class="price-label">1 clé</div>
+                                            <div class="price-note">Promotion -35%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1217,9 +1279,12 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé intelligente avec démarrage par bouton</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-amount">100$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-note">Prix standard</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">154$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">100$</div>
+                                            <div class="price-label">1 clé</div>
+                                            <div class="price-note">Promotion -35%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1229,9 +1294,12 @@
                                             <h6 class="mb-0" style="color: white !important;">Clé à Lame Rabattable avec télécommande</h6>
                                         </div>
                                         <div class="price-body">
-                                            <div class="price-amount">85$</div>
-                                            <div class="text-muted">1 clé</div>
-                                            <div class="price-note">Prix standard</div>
+                                            <!-- Prix barré avant réduction (+35%) -->
+                                            <div class="old-price">131$</div>
+                                            <!-- Prix actuel promotionnel (-35%) -->
+                                            <div class="current-price">85$</div>
+                                            <div class="price-label">1 clé</div>
+                                            <div class="price-note">Promotion -35%</div>
                                         </div>
                                     </div>
                                 </div>
@@ -1810,7 +1878,7 @@
                 'lame-rabattable': 100, // Type télécommande à puce et lame rabattable
                 'smart-key': 130   // Type smart key (main libre)
             },
-            // Prix pour le clonage (1 clé, prix standard)
+            // Prix pour le clonage (1 clé, prix standard avec promotion)
             clonage: {
                 'simple': 65,      // Type simple à puce
                 'lame-fixe': 78,   // Type télécommande à puce et lame fixe
@@ -1889,7 +1957,7 @@
             } else if (serviceType === 'clonage') {
                 // Clonage : prix total = prix 1 clé × nombre de clés
                 price = (priceCatalog.clonage[keyType] || 0) * keyNumber;
-                priceNote = 'Prix standard';
+                priceNote = 'Prix promotionnel avec -35%';
             }
 
             // Afficher le prix immédiatement
@@ -2217,4 +2285,3 @@
     </script>
 </body>
 </html>
-
